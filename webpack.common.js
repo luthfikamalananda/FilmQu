@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     // register: path.resolve(__dirname, 'src/scripts/register.js'),
-    // login: path.resolve(__dirname,'src/scripts/login.js'),
+    login: path.resolve(__dirname,'src/scripts/login.js'),
     home: path.resolve(__dirname,'src/scripts/home.js')
   },
   output: {
@@ -34,14 +34,14 @@ module.exports = {
     //   template: path.resolve(__dirname, 'src/templates/register/register.html'),
     //   chunks: ['register'],
     // }),
-    // new HtmlWebpackPlugin({
-    //   filename: 'login/index.html',
-    //   template: path.resolve(__dirname, 'src/templates/login/login.html'),
-    //   chunks: ['login'],
-    // }),
+    new HtmlWebpackPlugin({
+      filename: 'login/index.html',
+      template: path.resolve(__dirname, 'src/templates/login/login.html'),
+      chunks: ['login'],
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, 'src/templates/index.html'),
+      template: path.resolve(__dirname, 'src/templates/home/index.html'),
       chunks: ['home'],
     }),
     new CopyWebpackPlugin({
