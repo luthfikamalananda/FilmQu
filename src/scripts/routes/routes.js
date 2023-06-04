@@ -8,6 +8,7 @@
 // import profil from "../../views/home/pages/profil";
 // import mainLogin from "../../views/login/pages/main-login";
 import homePage from "../views/home/pages/homepage";
+import profile from "../views/home/pages/profile";
 import mainLogin from "../views/login/pages/main-login";
 import mainRegister from "../views/register/pages/main-register";
 
@@ -25,6 +26,7 @@ const loginRoutes ={
 
 const homeRoutes = {
   '/': homePage,
+  '/profile': profile,
   '/editdata/:id': 'dsd',
 }
 
