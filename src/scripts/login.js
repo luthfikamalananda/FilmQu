@@ -3,14 +3,14 @@ import 'regenerator-runtime';
 import AppLogin from './views/login/app';
 
 
-if(localStorage.getItem('user')) {
-  window.location.href='/'
+// if(localStorage.getItem('user')) {
+//   window.location.href='/'
 //   const userAdmin = localStorage.getItem('user');
 //   const data = JSON.parse(userAdmin);
 //   document.getElementById('username').innerText = data.nama;
 //   document.getElementById('namauser').innerText = data.nama;
 //   document.getElementById('user').innerText = data.user;
-}
+// }
 
 const appLogin = new AppLogin({
   maincontent: document.querySelector('#mainlogin'),
