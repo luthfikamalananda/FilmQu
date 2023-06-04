@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     register: path.resolve(__dirname, 'src/scripts/register.js'),
     login: path.resolve(__dirname,'src/scripts/login.js'),
-    home: path.resolve(__dirname,'src/scripts/home.js')
+    home: path.resolve(__dirname,'src/scripts/index.js')
   },
   output: {
     filename: '[name].bundle.js',

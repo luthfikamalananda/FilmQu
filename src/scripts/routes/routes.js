@@ -7,6 +7,7 @@
 // import menuAdmin from "../../views/home/pages/menu";
 // import profil from "../../views/home/pages/profil";
 // import mainLogin from "../../views/login/pages/main-login";
+import homePage from "../views/home/pages/homepage";
 import mainLogin from "../views/login/pages/main-login";
 import mainRegister from "../views/register/pages/main-register";
 
@@ -22,20 +23,15 @@ const loginRoutes ={
   '/': mainLogin,
 };
 
-// const adminRoutes = {
-//   '/': dashboardAdmin,
-//   '/akun': accountsAdmin,
-//   '/data': dataAdmin,
-//   '/menu': menuAdmin,
-//   '/profil': profil,
-//   '/editdata/:id': editData,
-//   '/editmenu/:id': editMenu
-// }
+const homeRoutes = {
+  '/': homePage,
+  '/editdata/:id': 'dsd',
+}
 
 // const HomeRoutes = {
 //   '/': dashboardHome,
 // }
 
 export {
-   loginRoutes, registerRoutes
+   loginRoutes, registerRoutes, homeRoutes
 };
