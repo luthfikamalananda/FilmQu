@@ -8,14 +8,14 @@
 // import profil from "../../views/home/pages/profil";
 // import mainLogin from "../../views/login/pages/main-login";
 import mainLogin from "../views/login/pages/main-login";
-// import mainRegister from "../../views/register/pages/main-register";
+import mainRegister from "../views/register/pages/main-register";
 
 
 
 // Register routes
-// const registerRoutes = {
-//   '/': mainRegister,
-// };
+const registerRoutes = {
+  '/': mainRegister,
+};
 
 // Login routes
 const loginRoutes ={
@@ -37,5 +37,5 @@ const loginRoutes ={
 // }
 
 export {
-   loginRoutes
+   loginRoutes, registerRoutes
 };
