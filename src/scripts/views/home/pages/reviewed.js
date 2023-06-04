@@ -1,6 +1,6 @@
 import { async } from "regenerator-runtime"
 
-const favourite = {
+const reviewed = {
     async render() {
         return `<div class="container-fluid">
         <div class="row">
@@ -12,7 +12,7 @@ const favourite = {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section">
-                                    <h4>Your Favourite Movies</h4>
+                                    <h4>Your Reviewed Movies</h4>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-sm-6">
@@ -199,4 +199,4 @@ const favourite = {
     }
 }
 
-export default favourite;
+export default reviewed;
