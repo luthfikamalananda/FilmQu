@@ -4,8 +4,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    register: path.resolve(__dirname, 'src/scripts/register.js'),
-    login: path.resolve(__dirname,'src/scripts/login.js'),
+    // register: path.resolve(__dirname, 'src/scripts/register.js'),
+    // login: path.resolve(__dirname,'src/scripts/login.js'),
     home: path.resolve(__dirname,'src/scripts/home.js')
   },
   output: {
@@ -29,28 +29,28 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'register/index.html',
-      template: path.resolve(__dirname, 'src/templates/register/register.html'),
-      chunks: ['register'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'login/index.html',
-      template: path.resolve(__dirname, 'src/templates/login/login.html'),
-      chunks: ['login'],
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'register/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/register/register.html'),
+    //   chunks: ['register'],
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'login/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/login/login.html'),
+    //   chunks: ['login'],
+    // }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, 'src/templates/home/index.html'),
+      template: path.resolve(__dirname, 'src/templates/index.html'),
       chunks: ['home'],
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
-        },
-      ],
-    }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, 'src/public/'),
+    //       to: path.resolve(__dirname, 'dist/'),
+    //     },
+    //   ],
+    // }),
   ],
 };
