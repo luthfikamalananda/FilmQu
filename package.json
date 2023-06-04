@@ -1,0 +1,11 @@
+{
+  "name": "filmqu",
+  "version": "1.0.0",
+  "description": "Perangkat Lunak Berbasis Web untuk Review Movie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
