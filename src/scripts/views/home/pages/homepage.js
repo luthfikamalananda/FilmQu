@@ -98,8 +98,8 @@ const homePage = {
             sedangTayangContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6">
                 <div class="item">
-                    <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-                    <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
+                    <a href='#/detail/${movie.id}'><img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                    <a href='#/detail/${movie.id}'><h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4></a>
                     <ul>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
                         <li><i class="fa fa-star"></i></li>
@@ -123,8 +123,8 @@ const homePage = {
             ratingTinggiContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6">
                 <div class="item">
-                    <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-                    <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
+                    <a href='#/detail/${movie.id}'><img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                    <a href='#/detail/${movie.id}'><h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4></a>
                     <ul>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
                         <li><i class="fa fa-star"></i></li>

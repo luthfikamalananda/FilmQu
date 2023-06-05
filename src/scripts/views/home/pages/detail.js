@@ -103,12 +103,12 @@ const detailPage = {
           <div class="col-lg-12">
             <div class="feature-banner header-text">
               <div class="row">
-                <div class="col-lg-4">
-                  <img src="${detailMovie.belongs_to_collection.poster_path ? tmdbConfig.BASE_IMAGE_URL + detailMovie.belongs_to_collection.poster_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" style="border-radius: 23px;max-height: 305px;object-fit:fill;" id='posterMovie'>
+                <div class="col-lg-2">
+                  <img src="${detailMovie.poster_path ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" style="border-radius: 23px;height:100%;object-fit:fill;" id='posterMovie'>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                   <div class="thumb">
-                      <img src="${detailMovie.belongs_to_collection.backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + detailMovie.belongs_to_collection.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" style="border-radius: 23px;" alt="" style="border-radius: 23px;" id='backdropMovie'>
+                      <img src="${detailMovie.backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + detailMovie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" alt="" style="border-radius: 23px;height: 305px;" id='backdropMovie'>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ const detailPage = {
         <div class="game-details">
           <div class="row">
             <div class="col-lg-12">
-              <h2 id='titleMovie'>${detailMovie.original_title}</h2>
+              <h2 id='titleMovie'>${detailMovie.title}</h2>
             </div>
             <div class="col-lg-12">
               <div class="content">
