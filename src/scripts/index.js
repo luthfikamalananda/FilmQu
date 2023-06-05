@@ -25,14 +25,14 @@ window.addEventListener('hashchange', () => {
     appHome.renderPage();
   });
 
-const searchNamaFilm = document.getElementById('searchNamaFilm');
-searchNamaFilm.addEventListener('keydown', (e) => {
+const searchText = document.getElementById('searchText');
+searchText.addEventListener('keydown', (e) => {
   console.log(e);
   if (e.keyCode == 13)  {
-    searchNamaFilm.value;
+    searchText.value;
     e.preventDefault()
-    console.log(searchNamaFilm.value);
-    window.location.href = `#/search/${searchNamaFilm.value}`
+    console.log(searchText.value);
+    window.location.href = `#/search/${searchText.value}`
   }
   
 }) 
