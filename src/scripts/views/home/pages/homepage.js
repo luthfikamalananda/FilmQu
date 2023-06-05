@@ -13,24 +13,36 @@ const homePage = {
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height:auto; ">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; opacity:0.25;">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="border-radius: 23px;" >
+                                <div class="carousel-caption d-none d-md-block">
+                                <h1>Welcome to <h1 style="color:#ec6090;">FilmQu</h1></h1>
+                                <p style="color:white;">Tempatnya Review Film Yang Menarik Bagi Pecinta Film</p>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                </div>
                             </div>
                         </div>
                         <div class="carousel-item">
                         <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
-                            <div class="carousel-caption d-none d-md-block">
-                                    <h5>Second slide label</h5>
-                                    <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            <div class="carousel-caption d-none d-md-block" align="top">
+                            <h1>Cari Tempat Review Buat Pemula? <h1>Ya Hanya di</h1><h1 style="color:#ec6090;">FilmQu</h1></h1>
+                            <p style="color:white;">Tempatnya Review Film Yang Asik Menarik Bagi Pecinta Film</p>
+                            <br>
+                            <br>
+                            <br>
                             </div>
                         </div>
                         <div class="carousel-item">
                         <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            <h1>Mau Nonton Film Bagus? <h1>Tapi Ga Tau Mau Nyari Rekomen Dimana? </h1><h1 style="color:#ec6090;">FilmQu</h1></h1>
+                            <p style="color:white;">Tempatnya Review Film Yang Asik Menarik Bagi Pecinta Film</p>
+                            <br>
+                            <br>
+                            <br>
                             </div>
                         </div>
                     </div>
