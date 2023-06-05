@@ -13,7 +13,8 @@ const mainLogin = {
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="background-color:#27292a; border-radius: 23px;" >
       
-                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color:#ec6090; font-family:'Poppins', sans-serif;" >LOGIN</p>
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color:#ec6090; font-family: 'Geologica', sans-serif;
+                      " >LOGIN</p>
       
                       <form class="mx-1 mx-md-4" id="loginForm">
       
