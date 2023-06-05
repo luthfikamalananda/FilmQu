@@ -7,6 +7,7 @@
 // import menuAdmin from "../../views/home/pages/menu";
 // import profil from "../../views/home/pages/profil";
 // import mainLogin from "../../views/login/pages/main-login";
+import detailPage from "../views/home/pages/detail";
 import favourite from "../views/home/pages/favourite";
 import homePage from "../views/home/pages/homepage";
 import profile from "../views/home/pages/profile";
@@ -33,6 +34,7 @@ const homeRoutes = {
   '/favourite': favourite,
   '/reviewed': reviewed,
   '/search/:id': searchPage,
+  '/detail/:id':detailPage,
   '/editdata/:id': 'dsd',
 }
 
