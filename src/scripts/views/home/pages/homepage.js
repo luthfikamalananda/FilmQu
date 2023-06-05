@@ -102,6 +102,7 @@ const homePage = {
                     <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
                     <ul>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
+                        <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-download"></i> 2.3M</li>
                     </ul>
                 </div>
@@ -126,6 +127,7 @@ const homePage = {
                     <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
                     <ul>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
+                        <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-download"></i> 2.3M</li>
                     </ul>
                 </div>
