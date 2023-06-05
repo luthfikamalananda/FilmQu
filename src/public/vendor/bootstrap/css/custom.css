@@ -1,3 +1,75 @@
 .container-fluid {
     max-width: 90%;
 }
+
+.titleName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+
+@media screen  and (max-width: 320px) {
+    .titleName {
+        max-width: 30px;
+    }
+}
+
+@media screen  and (min-width: 320px) {
+    .titleName {
+        max-width: 50px;
+    }
+}
+
+@media screen  and (min-width: 350px) {
+    .titleName {
+        max-width: 80px;
+    }
+}
+
+@media screen  and (min-width: 425px) {
+    .titleName {
+        max-width: 150px;
+    }
+}
+
+@media screen  and (min-width: 576px) {
+    .titleName {
+        max-width: 80px;
+    }
+}
+
+@media screen  and (min-width: 696px) {
+    .titleName {
+        max-width: 150px;
+    }
+}
+
+@media screen  and (min-width: 990px) {
+    .titleName {
+        max-width: 50px;
+    }
+}
+
+@media screen  and (min-width: 1024px) {
+    .titleName {
+        max-width: 80px;
+    }
+}
+
+@media screen  and (min-width: 1440px) {
+    .titleName {
+        max-width: 170px;
+    }
+}
+
+@media screen  and (min-width: 2560px) {
+    .titleName {
+        max-width: 410px;
+    }
+}
+
+
+
+
