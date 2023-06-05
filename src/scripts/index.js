@@ -24,3 +24,15 @@ window.addEventListener('hashchange', () => {
   window.addEventListener('load', () => {
     appHome.renderPage();
   });
+
+const searchNamaFilm = document.getElementById('searchNamaFilm');
+searchNamaFilm.addEventListener('keydown', (e) => {
+  console.log(e);
+  if (e.keyCode == 13)  {
+    searchNamaFilm.value;
+    e.preventDefault()
+    console.log(searchNamaFilm.value);
+    window.location.href = `#/search/${searchNamaFilm.value}`
+  }
+  
+}) 

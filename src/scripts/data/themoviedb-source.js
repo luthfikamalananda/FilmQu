@@ -21,7 +21,8 @@ class TheMovieDbSource {
 
   static async searchMovie(query){
     const response = await fetch(API_ENDPOINT.SEARCH(query));
-    return response.json();
+    const responseJson = await response.json();
+    return responseJson.results;
   }
 }
 

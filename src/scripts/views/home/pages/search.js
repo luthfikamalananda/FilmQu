@@ -1,8 +1,9 @@
 import { async } from "regenerator-runtime"
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
+import UrlParser from "../../../routes/url-parser";
 
-const homePage = {
+const searchPage = {
     async render() {
         return `<div class="container-fluid">
         <div class="row">
@@ -30,11 +31,14 @@ const homePage = {
 
     async afterRender() {
         console.log('afterrender jalan');
-        const searchedFilm = document.getElementById('searched-film');
-        const movies = await TheMovieDbSource.nowPlayingMovies();
-        console.log(movies);
-        movies.forEach(movie => {
-            searchedFilm.innerHTML += `
+        const query = UrlParser.parseActiveUrlWithoutCombiner();
+        console.log(query.id);
+        const searchedMovies = await TheMovieDbSource.searchMovie(query.id);
+        const searchMoviesContainer = document.getElementById('searched-film');
+        console.log(searchedMovies);
+        
+        searchedMovies.forEach(movie => {
+            searchMoviesContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6">
                 <div class="item">
                     <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
@@ -47,7 +51,7 @@ const homePage = {
             </div>`
         });
 
-        searchedFilm.innerHTML += `
+        searchMoviesContainer.innerHTML += `
         <div class="col-lg-12">
             <div class="main-button">
                 <a href="browse.html">Discover Popular</a>
@@ -57,4 +61,4 @@ const homePage = {
     }
 }
 
-export default homePage;
+export default searchPage;

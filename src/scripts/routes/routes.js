@@ -11,6 +11,7 @@ import favourite from "../views/home/pages/favourite";
 import homePage from "../views/home/pages/homepage";
 import profile from "../views/home/pages/profile";
 import reviewed from "../views/home/pages/reviewed";
+import searchPage from "../views/home/pages/search";
 import mainLogin from "../views/login/pages/main-login";
 import mainRegister from "../views/register/pages/main-register";
 
@@ -31,6 +32,7 @@ const homeRoutes = {
   '/profile': profile,
   '/favourite': favourite,
   '/reviewed': reviewed,
+  '/search/:id': searchPage,
   '/editdata/:id': 'dsd',
 }
 
