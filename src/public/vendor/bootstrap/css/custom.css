@@ -64,6 +64,12 @@
     }
 }
 
+@media screen  and (min-width: 1600px) {
+    .titleName {
+        max-width: 200px;
+    }
+}
+
 @media screen  and (min-width: 2560px) {
     .titleName {
         max-width: 410px;

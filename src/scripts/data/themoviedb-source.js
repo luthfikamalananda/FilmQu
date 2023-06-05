@@ -8,8 +8,8 @@ class TheMovieDbSource {
     return responseJson.results;
   }
 
-  static async upcomingMovies() {
-    const response = await fetch(API_ENDPOINT.UPCOMING);
+  static async popularMovies() {
+    const response = await fetch(API_ENDPOINT.POPULAR);
     const responseJson = await response.json();
     return responseJson.results;
   }
