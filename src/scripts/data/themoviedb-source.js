@@ -18,6 +18,11 @@ class TheMovieDbSource {
     const response = await fetch(API_ENDPOINT.DETAIL(id));
     return response.json();
   }
+
+  static async searchMovie(query){
+    const response = await fetch(API_ENDPOINT.SEARCH(query));
+    return response.json();
+  }
 }
 
 export default TheMovieDbSource;
