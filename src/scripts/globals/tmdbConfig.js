@@ -2,6 +2,7 @@ const tmdbConfig = {
     KEY: 'f8f6c5eacfe95af9e685c56bba5d2f15', // api_key account
     BASE_URL: 'https://api.themoviedb.org/3/',
     BASE_IMAGE_URL: 'https://image.tmdb.org/t/p/w500/',
+    ORIGINAL_IMAGE_URL: 'https://image.tmdb.org/t/p/original/',
     DEFAULT_LANGUAGE: 'en-us',
     // ----- CACHE ------
     CACHE_NAME: new Date().toISOString(),

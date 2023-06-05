@@ -14,11 +14,19 @@
     .titleName {
         max-width: 30px;
     }
+
+    #carouselExampleControls{
+        display: none;
+    }
 }
 
 @media screen  and (min-width: 320px) {
     .titleName {
         max-width: 50px;
+    }
+
+    #carouselExampleControls{
+        display: none;
     }
 }
 
@@ -55,6 +63,9 @@
 @media screen  and (min-width: 1024px) {
     .titleName {
         max-width: 80px;
+    }
+    #carouselExampleControls{
+        display: flex;
     }
 }
 

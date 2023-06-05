@@ -9,21 +9,28 @@ const homePage = {
             <div class="col-lg-12">
                 <div class="page-content">
 
-                    <!-- ***** Banner Start ***** -->
-                    <div class="main-banner">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="header-text">
-                                    <h6>Welcome To Cyborg</h6>
-                                    <h4><em>Browse</em> Our Popular Games Here</h4>
-                                    <div class="main-button">
-                                        <a href="browse.html">Browse Now</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="...">
                         </div>
                     </div>
-                    <!-- ***** Banner End ***** -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    </div>
 
                     <!-- ***** Most Popular Start ***** -->
                     <div class="most-popular">
@@ -100,6 +107,21 @@ const homePage = {
                 </div>
             </div>`
         });
+
+        ratingTinggiContainer.innerHTML += `
+        <div class="col-lg-12">
+            <div class="main-button">
+                <a href="browse.html">Discover Popular</a>
+            </div>
+        </div>`
+
+        const carousel1 = document.getElementById('carousel01');
+        const carousel2 = document.getElementById('carousel02');
+        const carousel3 = document.getElementById('carousel03');
+
+        carousel1.setAttribute('src', `${movies[0].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[0].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+        carousel2.setAttribute('src', `${movies[1].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[1].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+        carousel3.setAttribute('src', `${movies[2].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[2].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
 
     }
 }
