@@ -13,13 +13,25 @@ const homePage = {
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height:auto; ">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px;">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="..." style="max-height: 400px;">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
+                            <div class="carousel-caption d-none d-md-block">
+                                    <h5>Second slide label</h5>
+                                    <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="..." style="max-height: 400px;">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p style="color:white;">Some representative placeholder content for the first slide.</p>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
