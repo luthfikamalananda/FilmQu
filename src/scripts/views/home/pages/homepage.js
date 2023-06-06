@@ -16,8 +16,9 @@ const homePage = {
                             <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; opacity:0.25;">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="border-radius: 23px;" >
                                 <div class="carousel-caption d-none d-md-block">
-                                <h1>Welcome to <h1 style="color:#ec6090;">FilmQu</h1></h1>
+                                <h1 style="color:#ec6090; font-size:80px;">FilmQu</h1>
                                 <p style="color:white;">Tempatnya Review Film Yang Menarik Bagi Pecinta Film</p>
+                                <br>
                                 <br>
                                 <br>
                                 <br>
