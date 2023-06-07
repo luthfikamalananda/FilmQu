@@ -147,7 +147,7 @@ const detailPage = {
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12" style="text-align:justify;">
                     <p id='overviewMovie'>${detailMovie.overview}</p>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const detailPage = {
         <div class="other-games">
         <div class="row">
           <div class="col-lg-12">
-            <div class="heading-section">
+            <div class="heading-section" align="center">
               <h4><em>Review</em> Film</h4>
             </div>
           </div>
@@ -168,13 +168,15 @@ const detailPage = {
         <div class="row">
         <section>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-5 col-md-6 col-12 pb-4">
+            <div>
+                <div>
                     <div class="comment mt-4 text-justify float-left">
-                        <h4>Jhon Doe</h4>
-                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
-                        <br>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                      <div>
+                          <h4>Jhon Doe</h4>
+                          <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                          <br>
+                          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                      </div>
                     </div>
                     <br>
                     <div class="text-justify darker mt-4 float-right">
@@ -197,25 +199,19 @@ const detailPage = {
                         <br>
                         <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
-                    <form id="algin-form">
-                        <div class="form-group">
-                            <h4>Review Disini</h4>
-                            <label for="message">Message</label>
-                            <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="fullname" class="form-control">
-                        </div>
-                        <br>
-                        <div class="col-lg-12" align="center">
-                          <div class="main-border-button">
-                            <a href="#">SUBMIT</a>
-                          </div>
-                        </div>
-                    </form>
+                    <br>
+                    <div class="darker mt-4 text-justify">
+                            <textarea class="form-control" rows="2" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
+                            <br>
+                            <div class="mar-top clearfix">
+                              <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i>Comment</button>
+                              <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#" style="color:white; padding:10px;"></a>
+                              <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#" style="color:white; padding:10px;"></a>
+                              <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#" style="color:white; padding:10px;"></a>
+                      </div>
+                    </div>
+                    </div>
+
                 </div>
             </div>
         </div>
