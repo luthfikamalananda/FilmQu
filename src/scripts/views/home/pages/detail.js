@@ -129,48 +129,99 @@ const detailPage = {
                   <div class="col-lg-6">
                     <div class="left-info">
                       <div class="left">
-                        <h4>Fortnite</h4>
-                        <span>Sandbox</span>
+                        <h4>[ISI GENRE]</h4>
+                        <span>[ISI TAHUN FILM]</span>
                       </div>
                       <ul>
-                        <li id='ratingMovie'><i class="fa fa-star"></i> ${detailMovie.vote_average}</li>
-                        <li><i class="fa fa-download"></i> $${detailMovie.budget}</li>
+                        <li><br></li>
+                        <li><br></li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="right-info">
+                    <div class="right-info" align="center">
                       <ul>
-                        <li><i class="fa fa-star"></i> 4.8</li>
-                        <li><i class="fa fa-download"></i> 2.3M</li>
-                        <li><i class="fa fa-server"></i> 36GB</li>
-                        <li><i class="fa fa-gamepad"></i> Action</li>
+                        <li><i class="fa fa-star"></i> ${detailMovie.vote_average}</li>
+                        <li><i class="fa fa-star" style="color:white;"></i>[rating filmqu]</li>
+                        <li><i class="fa fa-server"></i>${detailMovie.budget}</li>
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-4">
-                    <img src="assets/images/details-01.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                  </div>
-                  <div class="col-lg-4">
-                    <img src="assets/images/details-02.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                  </div>
-                  <div class="col-lg-4">
-                    <img src="assets/images/details-03.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                  </div>
                   <div class="col-lg-12">
                     <p id='overviewMovie'>${detailMovie.overview}</p>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="main-border-button">
-                      <a href="#">Download Fortnite Now!</a>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- ***** Details End ***** -->`
+        <!-- ***** Details End ***** -->
+
+        <div class="other-games">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>Review</em> Film</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-6 col-12 pb-4">
+                    <div class="comment mt-4 text-justify float-left">
+                        <h4>Jhon Doe</h4>
+                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                        <br>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                    </div>
+                    <br>
+                    <div class="text-justify darker mt-4 float-right">
+                        <h4>Rob Simpson</h4>
+                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                        <br>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                    </div>
+                    <br>
+                    <div class="comment mt-4 text-justify">
+                        <h4>Jhon Doe</h4>
+                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                        <br>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                    </div>
+                    <br>
+                    <div class="darker mt-4 text-justify">
+                        <h4>Rob Simpson</h4>
+                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                        <br>
+                        <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                    <form id="algin-form">
+                        <div class="form-group">
+                            <h4>Review Disini</h4>
+                            <label for="message">Message</label>
+                            <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="fullname" class="form-control">
+                        </div>
+                        <br>
+                        <div class="col-lg-12" align="center">
+                          <div class="main-border-button">
+                            <a href="#">SUBMIT</a>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+        </div>
+      </div>`
         // const sedangTayangContainer = document.getElementById('sedang-tayang');
         // const movies = await TheMovieDbSource.nowPlayingMovies();
         // console.log(movies);
