@@ -1,11 +1,11 @@
-import { async } from "regenerator-runtime"
+import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 
 const detailPage = {
-    async render() {
-        return `<div class="container">
+  async render() {
+    return `<div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-content" id='detailContainer'>
@@ -87,28 +87,36 @@ const detailPage = {
             </div>
           </div>
         </div>
-      </div>`
-    },
+      </div>`;
+  },
 
-    async afterRender() {
-        console.log('afterrender jalan');
-        const idMovie = UrlParser.parseActiveUrlWithoutCombiner();
-        const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
-        console.log(detailMovie);
-        
-        const detailMovieContainer = document.getElementById('detailContainer');
-        detailMovieContainer.innerHTML = 
-        `<!-- ***** Featured Start ***** -->
+  async afterRender() {
+    console.log("afterrender jalan");
+    const idMovie = UrlParser.parseActiveUrlWithoutCombiner();
+    const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
+    console.log(detailMovie);
+
+    const detailMovieContainer = document.getElementById("detailContainer");
+    detailMovieContainer.innerHTML = `<!-- ***** Featured Start ***** -->
         <div class="row">
           <div class="col-lg-12">
             <div class="feature-banner header-text">
               <div class="row">
                 <div class="col-lg-2">
-                  <img src="${detailMovie.poster_path ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" style="border-radius: 23px;height:100%;object-fit:fill;" id='posterMovie'>
+                  <img src="${
+                    detailMovie.poster_path
+                      ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path
+                      : "https://picsum.photos/id/666/800/450?grayscale"
+                  }" alt="" style="border-radius: 23px;height:100%;object-fit:fill;" id='posterMovie'>
                 </div>
                 <div class="col-lg-10">
                   <div class="thumb">
-                      <img src="${detailMovie.backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + detailMovie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="" alt="" style="border-radius: 23px;height: 305px;" id='backdropMovie'>
+                      <img src="${
+                        detailMovie.backdrop_path
+                          ? tmdbConfig.ORIGINAL_IMAGE_URL +
+                            detailMovie.backdrop_path
+                          : "https://picsum.photos/id/666/800/450?grayscale"
+                      }" alt="" alt="" style="border-radius: 23px;height: 305px;" id='backdropMovie'>
                   </div>
                 </div>
               </div>
@@ -141,9 +149,13 @@ const detailPage = {
                   <div class="col-lg-6">
                     <div class="right-info" align="center">
                       <ul>
-                        <li><i class="fa fa-star"></i> ${detailMovie.vote_average}</li>
+                        <li><i class="fa fa-star"></i> ${
+                          detailMovie.vote_average
+                        }</li>
                         <li><i class="fa fa-star" style="color:white;"></i>[rating filmqu]</li>
-                        <li><i class="fa fa-server"></i>${detailMovie.budget}</li>
+                        <li><i class="fa fa-server"></i>${
+                          detailMovie.budget
+                        }</li>
                       </ul>
                     </div>
                   </div>
@@ -246,64 +258,63 @@ const detailPage = {
         </div>
     </section>
         </div>
-      </div>`
-        // const sedangTayangContainer = document.getElementById('sedang-tayang');
-        // const movies = await TheMovieDbSource.nowPlayingMovies();
-        // console.log(movies);
-        // movies.forEach(movie => {
-        //     sedangTayangContainer.innerHTML += `
-        //     <div class="col-lg-3 col-sm-6">
-        //         <div class="item">
-        //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-        //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
-        //             <ul>
-        //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-        //                 <li><i class="fa fa-download"></i> 2.3M</li>
-        //             </ul>
-        //         </div>
-        //     </div>`
-        // });
+      </div>`;
+    // const sedangTayangContainer = document.getElementById('sedang-tayang');
+    // const movies = await TheMovieDbSource.nowPlayingMovies();
+    // console.log(movies);
+    // movies.forEach(movie => {
+    //     sedangTayangContainer.innerHTML += `
+    //     <div class="col-lg-3 col-sm-6">
+    //         <div class="item">
+    //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+    //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
+    //             <ul>
+    //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
+    //                 <li><i class="fa fa-download"></i> 2.3M</li>
+    //             </ul>
+    //         </div>
+    //     </div>`
+    // });
 
-        // sedangTayangContainer.innerHTML += `
-        // <div class="col-lg-12">
-        //     <div class="main-button">
-        //         <a href="browse.html">Discover Popular</a>
-        //     </div>
-        // </div>`
+    // sedangTayangContainer.innerHTML += `
+    // <div class="col-lg-12">
+    //     <div class="main-button">
+    //         <a href="browse.html">Discover Popular</a>
+    //     </div>
+    // </div>`
 
-        // const ratingTinggiContainer = document.getElementById('ratingTinggi');
-        // const moviesRating = await TheMovieDbSource.popularMovies();
-        // console.log(moviesRating);
-        // moviesRating.forEach(movie => {
-        //     ratingTinggiContainer.innerHTML += `
-        //     <div class="col-lg-3 col-sm-6">
-        //         <div class="item">
-        //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-        //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
-        //             <ul>
-        //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-        //                 <li><i class="fa fa-download"></i> 2.3M</li>
-        //             </ul>
-        //         </div>
-        //     </div>`
-        // });
+    // const ratingTinggiContainer = document.getElementById('ratingTinggi');
+    // const moviesRating = await TheMovieDbSource.popularMovies();
+    // console.log(moviesRating);
+    // moviesRating.forEach(movie => {
+    //     ratingTinggiContainer.innerHTML += `
+    //     <div class="col-lg-3 col-sm-6">
+    //         <div class="item">
+    //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+    //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
+    //             <ul>
+    //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
+    //                 <li><i class="fa fa-download"></i> 2.3M</li>
+    //             </ul>
+    //         </div>
+    //     </div>`
+    // });
 
-        // ratingTinggiContainer.innerHTML += `
-        // <div class="col-lg-12">
-        //     <div class="main-button">
-        //         <a href="browse.html">Discover Popular</a>
-        //     </div>
-        // </div>`
+    // ratingTinggiContainer.innerHTML += `
+    // <div class="col-lg-12">
+    //     <div class="main-button">
+    //         <a href="browse.html">Discover Popular</a>
+    //     </div>
+    // </div>`
 
-        // const carousel1 = document.getElementById('carousel01');
-        // const carousel2 = document.getElementById('carousel02');
-        // const carousel3 = document.getElementById('carousel03');
+    // const carousel1 = document.getElementById('carousel01');
+    // const carousel2 = document.getElementById('carousel02');
+    // const carousel3 = document.getElementById('carousel03');
 
-        // carousel1.setAttribute('src', `${movies[0].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[0].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
-        // carousel2.setAttribute('src', `${movies[1].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[1].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
-        // carousel3.setAttribute('src', `${movies[2].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[2].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
-
-    }
-}
+    // carousel1.setAttribute('src', `${movies[0].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[0].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+    // carousel2.setAttribute('src', `${movies[1].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[1].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+    // carousel3.setAttribute('src', `${movies[2].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[2].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+  },
+};
 
 export default detailPage;
