@@ -165,53 +165,82 @@ const detailPage = {
             </div>
           </div>
         </div>
+        <hr style="color:white;">
         <div class="row">
         <section>
         <div class="container">
             <div>
+            <div class="rate">
+            <h5>Rate</h5>
+            <input type="radio" id="star10" name="rate" value="10" />
+            <label for="star10" title="text">10 stars</label>
+            <input type="radio" id="star9" name="rate" value="9" />
+            <label for="star9" title="text">9 stars</label>
+            <input type="radio" id="star8" name="rate" value="8" />
+            <label for="star8" title="text">8 stars</label>
+            <input type="radio" id="star7" name="rate" value="7" />
+            <label for="star7" title="text">7 stars</label>
+            <input type="radio" id="star6" name="rate" value="6" />
+            <label for="star6" title="text">6 stars</label>
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+          <br>
+          <br>
                 <div>
+                    <div class="darker mt-4 text-justify">
+                            <textarea class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
+                            <br>
+                            <div class="mar-top clearfix" style="float:right;">
+                              <button class="btn btn-sm btn-primary pull-right" type="submit" "><i class="fa fa-pencil fa-fw"></i>Comment</button>
+                            </div>
+                    </div>
+                    <br>
+                    <br>
                     <div class="comment mt-4 text-justify float-left">
+                    <hr style="color:white;">
                       <div>
-                          <h4>Jhon Doe</h4>
-                          <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                          <h5>Jhon Doe</h5>
+                          <span style="color:grey; text-align:right;"> 20 October, 2018</span>
                           <br>
-                          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                          <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                       </div>
                     </div>
                     <br>
                     <div class="text-justify darker mt-4 float-right">
-                        <h4>Rob Simpson</h4>
-                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                    <hr style="color:white;">
+                        <h5>Rob Simpson</h5>
+                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
                         <br>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                        <div style="color:white;">
+                          <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                        </div>
                     </div>
                     <br>
                     <div class="comment mt-4 text-justify">
-                        <h4>Jhon Doe</h4>
-                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                    <hr style="color:white;">
+                        <h5>Jhon Doe</h5>
+                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
                         <br>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                        <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                     </div>
                     <br>
                     <div class="darker mt-4 text-justify">
-                        <h4>Rob Simpson</h4>
-                        <span style="color:white; text-align:right;"> 20 October, 2018</span>
+                    <hr style="color:white;">
+                        <h5>Rob Simpson</h5>
+                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
                         <br>
-                        <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                        <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                     </div>
                     <br>
-                    <div class="darker mt-4 text-justify">
-                            <textarea class="form-control" rows="2" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
-                            <br>
-                            <div class="mar-top clearfix">
-                              <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i>Comment</button>
-                              <a class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#" style="color:white; padding:10px;"></a>
-                              <a class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#" style="color:white; padding:10px;"></a>
-                              <a class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#" style="color:white; padding:10px;"></a>
-                      </div>
-                    </div>
-                    </div>
-
                 </div>
             </div>
         </div>
