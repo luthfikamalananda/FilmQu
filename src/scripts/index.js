@@ -35,4 +35,18 @@ searchText.addEventListener('keydown', (e) => {
     window.location.href = `#/search/${searchText.value}`
   }
   
-}) 
+})
+
+const hamburgerButton = document.getElementById('hamburger');
+const navbarContents = document.getElementById('navbar');
+hamburgerButton.addEventListener('click', (e) => {
+  const hamburgerAtrributes = hamburgerButton.getAttribute('class')
+  console.log(hamburgerAtrributes);
+  hamburgerButton.setAttribute('class', 'menu-trigger active')
+  navbarContents.setAttribute('style', 'display: block;')
+  if (hamburgerAtrributes == 'menu-trigger active') {
+    console.log('ngandung');
+    hamburgerButton.setAttribute('class', 'menu-trigger')
+    navbarContents.setAttribute('style', 'display: none;')
+  }
+})
