@@ -3,7 +3,7 @@ import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 import firebaseConfig from "../../../globals/firebaseConfig";
-import { getDoc, doc, getFirestore, setDoc, deleteDoc } from "firebase/firestore";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
 const detailPage = {
@@ -108,13 +108,16 @@ const detailPage = {
       likeButtonContainer.setAttribute('style', 'display: none;')
     }
 
+    const memberData = JSON.parse(localStorage.getItem('user'));
+    console.log(memberData.id);
+
     const idMovie = UrlParser.parseActiveUrlWithoutCombiner();
     const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
-    console.log(detailMovie);
+    // console.log(detailMovie);
 
     let genreMovie;
     const genreList = detailMovie.genres
-    console.log(genreList);
+    // console.log(genreList);
     genreList.forEach(element => {
       if (genreMovie == undefined) {
         genreMovie = element.name
@@ -296,13 +299,18 @@ const detailPage = {
     const app = initializeApp(firebaseConfig);
 
     const db = getFirestore(app);
-    const docRef = doc(db, "film", idMovie.id);
+    const docRef = doc(db, "member", memberData.id);
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
+    const favorite_movies = docSnap.data().film_favorit;
+    const found = favorite_movies.findIndex(element => element == idMovie.id)
+    if (found > -1) {
       likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
       likeButton.addEventListener('click', async () => {
         try {
-          await deleteDoc(doc(db, "film", idMovie.id));
+          favorite_movies.splice(found, 1);
+          await updateDoc(docRef, {
+            film_favorit: favorite_movies
+          })
           Swal.fire({
             icon: 'success',
             title: 'Berhasil Unlike Film',
@@ -322,7 +330,10 @@ const detailPage = {
     } else {
       likeButton.addEventListener('click', async () => {
         try {
-          await setDoc(docRef, detailMovie)
+          favorite_movies.push(idMovie.id);
+          await updateDoc(docRef, {
+            film_favorit: favorite_movies
+          })
           Swal.fire({
             icon: 'success',
             title: 'Like Berhasil',
