@@ -52,7 +52,7 @@ const favourite = {
                     <div class="col-lg-3 col-sm-6">
                         <div class="item" style="max-width:auto;">
                             <a href='#/detail/${filmDB.id}'><img src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
-                            <a href='#/detail/${filmDB.id}'><h4 class='titleName' style="max-width:auto;">${filmDB.data().title}<br><span>Sandbox</span></h4></a>
+                            <a href='#/detail/${filmDB.id}'><h4 class='titleName' style="max-width:auto;">${filmDB.data().title}<br><span>${filmDB.data().release_date}</span></h4></a>
                             <ul>
                                 <li><i class="fa fa-star"></i> ${filmDB.data().vote_average}</li>
                                 <li><i class="fa fa-star"></i></li>

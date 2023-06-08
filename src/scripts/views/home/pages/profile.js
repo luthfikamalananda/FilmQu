@@ -109,7 +109,7 @@ const profile = {
                                     </div>
                               <div class="down-content">
                                 <h4 class='titleName'><a href="#/detail/${filmDB.id}">${filmDB.data().title}</h4></a>
-                                      <a><span><i class="fa fa-star"></i> ${filmDB.data().vote_average}</span>
+                                      <a><span><i class="fa fa-star" style="color: yellow;"></i> ${filmDB.data().vote_average}</span>
                               </div>
                             </div>
                     </div>`
