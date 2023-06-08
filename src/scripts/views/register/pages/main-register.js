@@ -1,4 +1,5 @@
 import { async } from "regenerator-runtime";
+import registerFunctions from "../../../utils/registerFunctions";
 // import registerFunctions from "../../../scripts/utils/registerFunctions";
 
 const mainRegister = {
@@ -40,7 +41,7 @@ const mainRegister = {
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4cd" class="form-control" placeholder="Repeat your Password" required />
+                            <input type="password" id="form3Example5c" class="form-control" placeholder="Repeat your Password" required />
                           </div>
                         </div>
 
@@ -73,31 +74,34 @@ const mainRegister = {
         console.log('afterrender jalan..');
         
 
-        // const registerForm=document.getElementById('registerForm');
-        // registerForm.addEventListener('submit', async(e) => {
-        //     const inputNama = document.getElementById('form3Example1c')
-        //     const inputEmail = document.getElementById('form3Example3c')
-        //     const inputPassword = document.getElementById('form3Example4c')
-        //     const inputPasswordRepeat = document.getElementById('form3Example4cd');
-        //     e.preventDefault();
-        //     if (inputPassword.value !== inputPasswordRepeat.value) {
-        //         Swal.fire(
-        //             'Konfirmasi Password Tidak Sama',
-        //             'Silahkan tulis ulang password konfirmasi',
-        //             'error'
-        //           )
-        //         setTimeout(() => {
-        //             location.reload();
-        //         }, 2000);
-        //     }else {
-        //         const data = {
-        //             email: inputEmail.value,
-        //             nama: inputNama.value,
-        //             password: inputPassword.value
-        //         }
-        //         await registerFunctions.init(data);   
-        //     }  
-        // })
+        const registerForm=document.getElementById('registerForm');
+        registerForm.addEventListener('submit', async(e) => {
+            const inputNama = document.getElementById('form3Example1c')
+            const inputEmail = document.getElementById('form3Example3c')
+            const inputPassword = document.getElementById('form3Example4c')
+            const inputPasswordRepeat = document.getElementById('form3Example5c');
+            e.preventDefault();
+            if (inputPassword.value !== inputPasswordRepeat.value) {
+                Swal.fire(
+                    'Konfirmasi Password Tidak Sama',
+                    'Silahkan tulis ulang password konfirmasi',
+                    'error'
+                  )
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+            }else {
+                const data = {
+                    email: inputEmail.value,
+                    nama: inputNama.value,
+                    password: inputPassword.value,
+                    status: 'active',
+                    date_created: new Date().toISOString().split('T')[0],
+                    last_login : new Date().toISOString().split('T')[0]
+                }
+                await registerFunctions.init(data);   
+            }  
+        })
     }
 }
 export default mainRegister;
