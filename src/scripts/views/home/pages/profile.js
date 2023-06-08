@@ -16,13 +16,17 @@ const profile = {
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
                           <span>Member</span>
-                          
                           <h4>Alan Smithee</h4>
                           <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                           <div class="main-border-button">
                             <a href="#/editprofile">Edit Profil</a>
                           </div>
                         </div>
+                        <div class="col-lg-12">
+                        <div class="main-button">
+                          <a href="#">Logout</a>
+                        </div>
+                      </div>
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <ul>
