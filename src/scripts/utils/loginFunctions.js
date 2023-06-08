@@ -33,6 +33,9 @@ const loginFunctions = {
                 nama: user.nama,
                 password: user.password,
                 date_created: user.date_created,
+                film_favorit: user.film_favorit,
+                film_review: user.film_review,
+                foto_profil: user.foto_profil
             }
             await setDoc(doc(db, "member", user.id), dataToDB);
 
