@@ -109,7 +109,6 @@ const detailPage = {
     }
 
     const memberData = JSON.parse(localStorage.getItem('user'));
-    console.log(memberData.id);
 
     const idMovie = UrlParser.parseActiveUrlWithoutCombiner();
     const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
@@ -293,70 +292,77 @@ const detailPage = {
     </section>
         </div>
       </div>`;
-    const likeButton = document.getElementById('likeButton');
-    const likeContent = document.getElementById('likeContent')
 
-    const app = initializeApp(firebaseConfig);
+    if(localStorage.getItem('user')) {
+       const likeButtonContainer = document.getElementById('likeButtonContainer');
+       likeButtonContainer.setAttribute('style', 'display: none;')
+    
+      const likeButton = document.getElementById('likeButton');
+      const likeContent = document.getElementById('likeContent')
 
-    const db = getFirestore(app);
-    const docRef = doc(db, "member", memberData.id);
-    const docSnap = await getDoc(docRef);
-    const favorite_movies = docSnap.data().film_favorit;
-    const found = favorite_movies.findIndex(element => element == idMovie.id)
-    if (found > -1) {
-      likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
-      likeButton.addEventListener('click', async () => {
-        try {
-          favorite_movies.splice(found, 1);
-          await updateDoc(docRef, {
-            film_favorit: favorite_movies
-          })
-          Swal.fire({
-            icon: 'success',
-            title: 'Berhasil Unlike Film',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Tutup',
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              location.reload();
-            } 
-          })
-        } catch (error) {
+      const app = initializeApp(firebaseConfig);
+
+      const db = getFirestore(app);
+      const docRef = doc(db, "member", memberData.id);
+      const docSnap = await getDoc(docRef);
+      const favorite_movies = docSnap.data().film_favorit;
+      const found = favorite_movies.findIndex(element => element == idMovie.id)
+      if (found > -1) {
+        likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
+        likeButton.addEventListener('click', async () => {
+          try {
+            favorite_movies.splice(found, 1);
+            await updateDoc(docRef, {
+              film_favorit: favorite_movies
+            })
+            Swal.fire({
+              icon: 'success',
+              title: 'Berhasil Unlike Film',
+              showDenyButton: false,
+              showCancelButton: false,
+              confirmButtonText: 'Tutup',
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                location.reload();
+              } 
+            })
+          } catch (error) {
+            
+          }
+        })
+      } else {
+        likeButton.addEventListener('click', async () => {
+          try {
+            favorite_movies.push(idMovie.id);
+            await updateDoc(docRef, {
+              film_favorit: favorite_movies
+            })
+            await setDoc(doc(db, 'film', idMovie.id), detailMovie)
+            Swal.fire({
+              icon: 'success',
+              title: 'Like Berhasil',
+              showDenyButton: false,
+              showCancelButton: false,
+              confirmButtonText: 'Tutup',
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                location.reload();
+              } 
+            })
+          } catch (error) {
+            Swal.fire(
+              error,
+              'Like Gagal',
+              'error'
+            )
+          }
           
-        }
-      })
-    } else {
-      likeButton.addEventListener('click', async () => {
-        try {
-          favorite_movies.push(idMovie.id);
-          await updateDoc(docRef, {
-            film_favorit: favorite_movies
-          })
-          await setDoc(doc(db, 'film', idMovie.id), detailMovie)
-          Swal.fire({
-            icon: 'success',
-            title: 'Like Berhasil',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Tutup',
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              location.reload();
-            } 
-          })
-        } catch (error) {
-          Swal.fire(
-            error,
-            'Like Gagal',
-            'error'
-          )
-        }
-        
-      })
-    }
+        })
+      }
+
+  }
 
   },
 };
