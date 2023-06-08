@@ -20,7 +20,7 @@ const profile = {
                           <h4>Alan Smithee</h4>
                           <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                           <div class="main-border-button">
-                            <a href="#">Edit Profil</a>
+                            <a href="#/editprofile">Edit Profil</a>
                           </div>
                         </div>
                       </div>
