@@ -193,7 +193,7 @@ const detailPage = {
         <section>
         <div class="container">
             <div>
-            <div class="rate">
+            <div class="rate" style="max-width:auto;">
             <h5>Rate</h5>
             <input type="radio" id="star10" name="rate" value="10" />
             <label for="star10" title="text">10 stars</label>
@@ -216,6 +216,8 @@ const detailPage = {
             <input type="radio" id="star1" name="rate" value="1" />
             <label for="star1" title="text">1 star</label>
           </div>
+          <br>
+          <br>
           <br>
           <br>
                 <div>
