@@ -37,15 +37,14 @@ const favourite = {
         const favoriteContainer = document.getElementById('favorit-film');
 
         const memberData = JSON.parse(localStorage.getItem('user'));
-        const app = initializeApp(firebaseConfig);
 
+        const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const docRef = doc(db, 'member', memberData.id)
         const docSnap = await getDoc(docRef);
         const memberFavorite = docSnap.data().film_favorit
 
         const querySnapshot = await getDocs(collection(db, "film"));
-        const movieFavorit = []
         querySnapshot.forEach((filmDB) => {
             memberFavorite.forEach((idMovie) => {
                 if (filmDB.id == idMovie) {
