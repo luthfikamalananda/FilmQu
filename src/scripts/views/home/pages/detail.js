@@ -334,9 +334,7 @@ const detailPage = {
           await updateDoc(docRef, {
             film_favorit: favorite_movies
           })
-          await setDoc(doc(db, 'film', idMovie.id), {
-            detailMovie
-          })
+          await setDoc(doc(db, 'film', idMovie.id), detailMovie)
           Swal.fire({
             icon: 'success',
             title: 'Like Berhasil',

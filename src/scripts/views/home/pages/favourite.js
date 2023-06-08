@@ -1,4 +1,8 @@
 import { async } from "regenerator-runtime"
+import tmdbConfig from "../../../globals/tmdbConfig";
+import firebaseConfig from "../../../globals/firebaseConfig";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
 const favourite = {
     async render() {
@@ -14,180 +18,13 @@ const favourite = {
                                 <div class="heading-section">
                                     <h4>Your Favourite Movies</h4>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-01.jpg" alt="">
-                                            <h4>Fortnite<br><span>Sandbox</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-02.jpg" alt="">
-                                            <h4>PubG<br><span>Battle S</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-03.jpg" alt="">
-                                            <h4>Dota2<br><span>Steam-X</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-04.jpg" alt="">
-                                            <h4>CS-GO<br><span>Legendary</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="item">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-sm-6">
-                                                    <div class="item inner-item">
-                                                        <img src="assets/images/popular-05.jpg" alt="">
-                                                        <h4>Mini Craft<br><span>Legendary</span></h4>
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i> 4.8</li>
-                                                            <li><i class="fa fa-download"></i> 2.3M</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-sm-6">
-                                                    <div class="item">
-                                                        <img src="assets/images/popular-06.jpg" alt="">
-                                                        <h4>Eagles Fly<br><span>Matrix Games</span></h4>
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i> 4.8</li>
-                                                            <li><i class="fa fa-download"></i> 2.3M</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-07.jpg" alt="">
-                                            <h4>Warface<br><span>Max 3D</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="assets/images/popular-08.jpg" alt="">
-                                            <h4>Warcraft<br><span>Legend</span></h4>
-                                            <ul>
-                                                <li><i class="fa fa-star"></i> 4.8</li>
-                                                <li><i class="fa fa-download"></i> 2.3M</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="main-button">
-                                            <a href="browse.html">Discover Popular</a>
-                                        </div>
-                                    </div>
+                                <div class="row" id='favorit-film'>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- ***** Most Popular End ***** -->
 
-                    <!-- ***** Gaming Library Start ***** -->
-                    <div class="gaming-library">
-                        <div class="col-lg-12">
-                            <div class="heading-section">
-                                <h4><em>Your Gaming</em> Library</h4>
-                            </div>
-                            <div class="item">
-                                <ul>
-                                    <li><img src="assets/images/game-01.jpg" alt="" class="templatemo-item"></li>
-                                    <li>
-                                        <h4>Dota 2</h4><span>Sandbox</span>
-                                    </li>
-                                    <li>
-                                        <h4>Date Added</h4><span>24/08/2036</span>
-                                    </li>
-                                    <li>
-                                        <h4>Hours Played</h4><span>634 H 22 Mins</span>
-                                    </li>
-                                    <li>
-                                        <h4>Currently</h4><span>Downloaded</span>
-                                    </li>
-                                    <li>
-                                        <div class="main-border-button border-no-active"><a href="#">Donwloaded</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item">
-                                <ul>
-                                    <li><img src="assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
-                                    <li>
-                                        <h4>Fortnite</h4><span>Sandbox</span>
-                                    </li>
-                                    <li>
-                                        <h4>Date Added</h4><span>22/06/2036</span>
-                                    </li>
-                                    <li>
-                                        <h4>Hours Played</h4><span>740 H 52 Mins</span>
-                                    </li>
-                                    <li>
-                                        <h4>Currently</h4><span>Downloaded</span>
-                                    </li>
-                                    <li>
-                                        <div class="main-border-button"><a href="#">Donwload</a></div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item last-item">
-                                <ul>
-                                    <li><img src="assets/images/game-03.jpg" alt="" class="templatemo-item"></li>
-                                    <li>
-                                        <h4>CS-GO</h4><span>Sandbox</span>
-                                    </li>
-                                    <li>
-                                        <h4>Date Added</h4><span>21/04/2036</span>
-                                    </li>
-                                    <li>
-                                        <h4>Hours Played</h4><span>892 H 14 Mins</span>
-                                    </li>
-                                    <li>
-                                        <h4>Currently</h4><span>Downloaded</span>
-                                    </li>
-                                    <li>
-                                        <div class="main-border-button border-no-active"><a href="#">Donwloaded</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="profile.html">View Your Library</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ***** Gaming Library End ***** -->
                 </div>
             </div>
         </div>
@@ -196,6 +33,37 @@ const favourite = {
 
     async afterRender() {
         console.log('afterrender jalan');
+
+        const favoriteContainer = document.getElementById('favorit-film');
+
+        const memberData = JSON.parse(localStorage.getItem('user'));
+        const app = initializeApp(firebaseConfig);
+
+        const db = getFirestore(app);
+        const docRef = doc(db, 'member', memberData.id)
+        const docSnap = await getDoc(docRef);
+        const memberFavorite = docSnap.data().film_favorit
+
+        const querySnapshot = await getDocs(collection(db, "film"));
+        const movieFavorit = []
+        querySnapshot.forEach((filmDB) => {
+            memberFavorite.forEach((idMovie) => {
+                if (filmDB.id == idMovie) {
+                    favoriteContainer.innerHTML += `
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="item" style="max-width:auto;">
+                            <a href='#/detail/${filmDB.id}'><img src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                            <a href='#/detail/${filmDB.id}'><h4 class='titleName' style="max-width:auto;">${filmDB.data().title}<br><span>Sandbox</span></h4></a>
+                            <ul>
+                                <li><i class="fa fa-star"></i> ${filmDB.data().vote_average}</li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>`
+                }
+            })
+            console.log(filmDB.id, '==>', filmDB.data());
+        });
     }
 }
 
