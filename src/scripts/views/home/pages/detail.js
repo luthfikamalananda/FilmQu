@@ -5,7 +5,7 @@ import tmdbConfig from "../../../globals/tmdbConfig";
 
 const detailPage = {
   async render() {
-    return `<div class="container" style="max-width:70%;>
+    return `<div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-content" id='detailContainer'>
@@ -112,15 +112,15 @@ const detailPage = {
         <div class="row">
           <div class="col-lg-12">
             <div class="feature-banner header-text">
-              <div class="row">
-                <div class="col-lg-2">
+              <div class="row" align="center">
+                <div class="col-lg-2" style="max-height:60%;">
                   <img src="${
                     detailMovie.poster_path
                       ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path
                       : "https://picsum.photos/id/666/800/450?grayscale"
-                  }" alt="" style="border-radius: 23px;height:100%;object-fit:fill;" id='posterMovie'>
+                  }" alt="" style="border-radius: 23px;height:100%;" id='posterMovie'>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-10" style="max-height:60%">
                   <div class="thumb">
                       <img src="${
                         detailMovie.backdrop_path
@@ -132,6 +132,7 @@ const detailPage = {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <!-- ***** Featured End ***** -->
@@ -164,9 +165,6 @@ const detailPage = {
                           detailMovie.vote_average
                         }</li>
                         <li><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
-                        <li><i class="fa fa-server"></i>${
-                          detailMovie.budget
-                        }</li>
                       </ul>
                     </div>
                   </div>
@@ -194,7 +192,7 @@ const detailPage = {
         <div class="container">
             <div>
             <div class="rate" style="max-width:auto;">
-            <h5>Rate</h5>
+            <h5 >Rate</h5>
             <input type="radio" id="star10" name="rate" value="10" />
             <label for="star10" title="text">10 stars</label>
             <input type="radio" id="star9" name="rate" value="9" />
