@@ -2,6 +2,9 @@ import { async } from "regenerator-runtime";
 import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
+import firebaseConfig from "../../../globals/firebaseConfig";
+import { getDoc, doc, getFirestore, setDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
 const detailPage = {
   async render() {
@@ -87,7 +90,13 @@ const detailPage = {
             </div>
           </div>
         </div>
-      </div>`;
+      <div id="likeButtonContainer">
+      <button aria-label="like this movie" id="likeButton" class="like">
+      <i class="fa-sharp fa-regular fa-heart fa-beat" aria-hidden="true" id='likeContent'></i>
+      </button>
+      </div>
+      </div>
+      `;
   },
 
   async afterRender() {
@@ -274,6 +283,43 @@ const detailPage = {
     </section>
         </div>
       </div>`;
+    const likeButton = document.getElementById('likeButton');
+    const likeContent = document.getElementById('likeContent')
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore(app);
+    const docRef = doc(db, "film", idMovie.id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
+    } else {
+      likeButton.addEventListener('click', async () => {
+        try {
+          setDoc(docRef, detailMovie)
+          Swal.fire({
+            icon: 'success',
+            title: 'Like Berhasil',
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Tutup',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              location.reload();
+            } 
+          })
+        } catch (error) {
+          Swal.fire(
+            error,
+            'Like Gagal',
+            'error'
+          )
+        }
+        
+      })
+    }
+
   },
 };
 
