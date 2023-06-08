@@ -96,6 +96,17 @@ const detailPage = {
     const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
     console.log(detailMovie);
 
+    let genreMovie;
+    const genreList = detailMovie.genres
+    console.log(genreList);
+    genreList.forEach(element => {
+      if (genreMovie == undefined) {
+        genreMovie = element.name
+      } else {
+        genreMovie += ', ' + element.name
+      }
+    });
+
     const detailMovieContainer = document.getElementById("detailContainer");
     detailMovieContainer.innerHTML = `<!-- ***** Featured Start ***** -->
         <div class="row">
@@ -137,8 +148,8 @@ const detailPage = {
                   <div class="col-lg-6">
                     <div class="left-info">
                       <div class="left">
-                        <h4>[ISI GENRE]</h4>
-                        <span>[ISI TAHUN FILM]</span>
+                        <h4>${genreMovie}</h4>
+                        <span>${detailMovie.release_date}</span>
                       </div>
                       <ul>
                         <li><br></li>
@@ -259,61 +270,6 @@ const detailPage = {
     </section>
         </div>
       </div>`;
-    // const sedangTayangContainer = document.getElementById('sedang-tayang');
-    // const movies = await TheMovieDbSource.nowPlayingMovies();
-    // console.log(movies);
-    // movies.forEach(movie => {
-    //     sedangTayangContainer.innerHTML += `
-    //     <div class="col-lg-3 col-sm-6">
-    //         <div class="item">
-    //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-    //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
-    //             <ul>
-    //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-    //                 <li><i class="fa fa-download"></i> 2.3M</li>
-    //             </ul>
-    //         </div>
-    //     </div>`
-    // });
-
-    // sedangTayangContainer.innerHTML += `
-    // <div class="col-lg-12">
-    //     <div class="main-button">
-    //         <a href="browse.html">Discover Popular</a>
-    //     </div>
-    // </div>`
-
-    // const ratingTinggiContainer = document.getElementById('ratingTinggi');
-    // const moviesRating = await TheMovieDbSource.popularMovies();
-    // console.log(moviesRating);
-    // moviesRating.forEach(movie => {
-    //     ratingTinggiContainer.innerHTML += `
-    //     <div class="col-lg-3 col-sm-6">
-    //         <div class="item">
-    //             <img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-    //             <h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4>
-    //             <ul>
-    //                 <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-    //                 <li><i class="fa fa-download"></i> 2.3M</li>
-    //             </ul>
-    //         </div>
-    //     </div>`
-    // });
-
-    // ratingTinggiContainer.innerHTML += `
-    // <div class="col-lg-12">
-    //     <div class="main-button">
-    //         <a href="browse.html">Discover Popular</a>
-    //     </div>
-    // </div>`
-
-    // const carousel1 = document.getElementById('carousel01');
-    // const carousel2 = document.getElementById('carousel02');
-    // const carousel3 = document.getElementById('carousel03');
-
-    // carousel1.setAttribute('src', `${movies[0].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[0].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
-    // carousel2.setAttribute('src', `${movies[1].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[1].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
-    // carousel3.setAttribute('src', `${movies[2].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[2].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
   },
 };
 
