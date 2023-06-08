@@ -4,7 +4,7 @@ import tmdbConfig from "../../../globals/tmdbConfig";
 
 const homePage = {
     async render() {
-        return `<div class="container-fluid">
+        return `<div class="container-fluid" style="max-width:70%;">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
@@ -13,7 +13,7 @@ const homePage = {
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height:auto; ">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; opacity:0.25;">
+                            <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel01' alt="..." style="max-height: 400px; border-radius:25px; opacity:0.2;">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1" style="border-radius: 23px;" >
                                 <div class="carousel-caption d-none d-md-block">
                                 <h1 style="color:#ec6090; font-size:80px;">FilmQu</h1>
@@ -27,7 +27,7 @@ const homePage = {
                             </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel02' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.2;">
                             <div class="carousel-caption d-none d-md-block" align="top">
                             <h1>Cari Tempat Review Buat Pemula? <h1>Ya Hanya di</h1><h1 style="color:#ec6090;">FilmQu</h1></h1>
                             <p style="color:white;">Tempatnya Review Film Yang Asik Menarik Bagi Pecinta Film</p>
@@ -37,7 +37,7 @@ const homePage = {
                             </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.4;">
+                        <img src="../../../assets/images/banner-bg.jpg" class="d-block w-100 h-50" id='carousel03' alt="..." style="max-height: 400px; border-radius:25px; color:#fff; opacity:0.2;">
                             <div class="carousel-caption d-none d-md-block">
                             <h1>Mau Nonton Film Bagus? <h1>Tapi Ga Tau Mau Nyari Rekomen Dimana? </h1><h1 style="color:#ec6090;">FilmQu</h1></h1>
                             <p style="color:white;">Tempatnya Review Film Yang Asik Menarik Bagi Pecinta Film</p>
