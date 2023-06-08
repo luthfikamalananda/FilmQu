@@ -2,7 +2,7 @@ import { async } from "regenerator-runtime"
 
 const favourite = {
     async render() {
-        return `<div class="container-fluid">
+        return `<div class="container-fluid" style="max-width:70%;>
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">

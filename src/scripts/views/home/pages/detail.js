@@ -5,7 +5,7 @@ import tmdbConfig from "../../../globals/tmdbConfig";
 
 const detailPage = {
   async render() {
-    return `<div class="container">
+    return `<div class="container" style="max-width:70%;>
         <div class="row">
           <div class="col-lg-12">
             <div class="page-content" id='detailContainer'>
@@ -163,7 +163,7 @@ const detailPage = {
                         <li><i class="fa fa-star"></i> ${
                           detailMovie.vote_average
                         }</li>
-                        <li><i class="fa fa-star" style="color:white;"></i>[rating filmqu]</li>
+                        <li><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
                         <li><i class="fa fa-server"></i>${
                           detailMovie.budget
                         }</li>
