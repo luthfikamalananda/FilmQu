@@ -20,12 +20,10 @@ const profile = {
                           <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                           <div class="main-border-button">
                             <a href="#/editprofile">Edit Profil</a>
+                            <a href="#">Logout</a>
                           </div>
                         </div>
-                        <div class="col-lg-12">
-                        <div class="main-button">
-                          <a href="#">Logout</a>
-                        </div>
+                        <div class="col-lg-12" align="right">
                       </div>
                       </div>
                       <div class="col-lg-4 align-self-center">
