@@ -113,14 +113,14 @@ const detailPage = {
           <div class="col-lg-12">
             <div class="feature-banner header-text">
               <div class="row" align="center">
-                <div class="col-lg-2" style="max-height:60%;">
+                <div class="col-lg-2">
                   <img src="${
                     detailMovie.poster_path
                       ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path
                       : "https://picsum.photos/id/666/800/450?grayscale"
-                  }" alt="" style="border-radius: 23px;height:100%;" id='posterMovie'>
+                  }" alt="" style="border-radius: 23px;height:100%; object-fit:cover;" id='posterMovie'>
                 </div>
-                <div class="col-lg-10" style="max-height:60%">
+                <div class="col-lg-10">
                   <div class="thumb">
                       <img src="${
                         detailMovie.backdrop_path
@@ -148,6 +148,8 @@ const detailPage = {
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="left-info">
+                    <p align="center" style="color:#ec6090;font-size: 20px; font-weight: bold;">INFO<p>
+                    <hr style="color:white;">
                       <div class="left">
                         <h4>${genreMovie}</h4>
                         <span>${detailMovie.release_date}</span>
@@ -160,6 +162,8 @@ const detailPage = {
                   </div>
                   <div class="col-lg-6">
                     <div class="right-info" align="center">
+                    <p align="center" style="color:#ec6090;font-size: 20px; font-weight: bold;">RATING<p>
+                    <hr style="color:white;">
                       <ul>
                         <li><i class="fa fa-star"></i> ${
                           detailMovie.vote_average
