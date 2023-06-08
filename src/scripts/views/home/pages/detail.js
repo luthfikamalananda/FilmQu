@@ -3,7 +3,7 @@ import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 import firebaseConfig from "../../../globals/firebaseConfig";
-import { getDoc, doc, getFirestore, setDoc } from "firebase/firestore";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
 const detailPage = {
@@ -293,10 +293,29 @@ const detailPage = {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
+      likeButton.addEventListener('click', async () => {
+        try {
+          await deleteDoc(doc(db, "film", idMovie.id));
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil Unlike Film',
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Tutup',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              location.reload();
+            } 
+          })
+        } catch (error) {
+          
+        }
+      })
     } else {
       likeButton.addEventListener('click', async () => {
         try {
-          setDoc(docRef, detailMovie)
+          await setDoc(docRef, detailMovie)
           Swal.fire({
             icon: 'success',
             title: 'Like Berhasil',
