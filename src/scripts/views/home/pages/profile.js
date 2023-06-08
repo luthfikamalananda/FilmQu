@@ -25,7 +25,7 @@ const profile = {
                           <p id='bioMember'>Hi I'm new here, welcome to my profile</p>
                           <div class="main-border-button">
                             <a href="#/editprofile">Edit Profil</a>
-                            <a href="#">Logout</a>
+                            <a href="javascript:void(0);" id='logoutBtn'>Logout</a>
                         </div>
                       </div>
                         <div class="col-lg-12" align="right">
@@ -117,6 +117,25 @@ const profile = {
             })
             console.log(filmDB.id, '==>', filmDB.data());
         });
+
+        // Logout
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', () => {
+          localStorage.removeItem('user');
+          Swal.fire({
+            icon: 'success',
+            title: 'Logout Berhasil',
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Tutup',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              window.location.href = '#/';
+              location.reload();
+            } 
+          })
+        })
         
     }
 }

@@ -61,7 +61,6 @@ const favourite = {
                     </div>`
                 }
             })
-            console.log(filmDB.id, '==>', filmDB.data());
         });
     }
 }
