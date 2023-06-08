@@ -1,6 +1,7 @@
 import firebaseConfig from "../../../globals/firebaseConfig";
-import { getDoc, doc, getFirestore } from "firebase/firestore";
-import { initializeApp } from "firebase/app";;
+import { getDoc, doc, getFirestore, getDocs, collection } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import tmdbConfig from "../../../globals/tmdbConfig";
 
 const profile = {
     async render() {
@@ -41,63 +42,10 @@ const profile = {
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="clips">
-                          <div class="row">
+                          <div class="row" id='favoritfilmContainer'>
                             <div class="col-lg-12">
                               <div class="heading-section">
                                 <h4>Favourite Film</h4>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                              <div class="item">
-                                <div class="thumb">
-                                  <img src="assets/images/clip-01.jpg" alt="" style="border-radius: 23px;">
-                                  <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                                </div>
-                                <div class="down-content">
-                                  <h4>First Clip</h4>
-                                  <span><i class="fa fa-eye"></i> 250</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                              <div class="item">
-                                <div class="thumb">
-                                  <img src="assets/images/clip-02.jpg" alt="" style="border-radius: 23px;">
-                                  <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                                </div>
-                                <div class="down-content">
-                                  <h4>Second Clip</h4>
-                                  <span><i class="fa fa-eye"></i> 183</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                              <div class="item">
-                                <div class="thumb">
-                                  <img src="assets/images/clip-03.jpg" alt="" style="border-radius: 23px;">
-                                  <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                                </div>
-                                <div class="down-content">
-                                  <h4>Third Clip</h4>
-                                  <span><i class="fa fa-eye"></i> 141</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                              <div class="item">
-                                <div class="thumb">
-                                  <img src="assets/images/clip-04.jpg" alt="" style="border-radius: 23px;">
-                                  <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                                </div>
-                                <div class="down-content">
-                                  <h4>Fourth Clip</h4>
-                                  <span><i class="fa fa-eye"></i> 91</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-12">
-                              <div class="main-button">
-                                <a href="#">Load More Film</a>
                               </div>
                             </div>
                           </div>
@@ -143,6 +91,33 @@ const profile = {
         reviewCounter.innerText = dataMember.film_review.length;
         dateCreatedContainer.innerText = dataMember.date_created;
 
+        // Favorite Movie Container
+        const favoritContainer = document.getElementById('favoritfilmContainer');
+        
+        const memberFavorite = docSnap.data().film_favorit
+
+        const querySnapshot = await getDocs(collection(db, "film"));
+        querySnapshot.forEach((filmDB) => {
+            memberFavorite.forEach((idMovie) => {
+                if (filmDB.id == idMovie) {
+                  favoritContainer.innerHTML += `
+                    <div class="col-lg-3 col-sm-6">
+                      <div class="item">
+                              <div class="thumb">
+                                            <img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+                                            <a href="#/detail/${filmDB.id}"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
+                                    </div>
+                              <div class="down-content">
+                                <h4 class='titleName'><a href="#/detail/${filmDB.id}">${filmDB.data().title}</h4></a>
+                                      <a><span><i class="fa fa-star"></i> ${filmDB.data().vote_average}</span>
+                              </div>
+                            </div>
+                    </div>`
+                }
+            })
+            console.log(filmDB.id, '==>', filmDB.data());
+        });
+        
     }
 }
 
