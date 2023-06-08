@@ -1,3 +1,7 @@
+import firebaseConfig from "../../../globals/firebaseConfig";
+import { getDoc, doc, getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";;
+
 const profile = {
     async render() {
         return ` <div class="container-fluid">
@@ -15,22 +19,22 @@ const profile = {
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
-                          <span>Member</span>
-                          <h4>Alan Smithee</h4>
-                          <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
+                          <span id='statusMember'>Active</span>
+                          <h4 id='namaMember'>Alan Smithee</h4>
+                          <p id='bioMember'>Hi I'm new here, welcome to my profile</p>
                           <div class="main-border-button">
                             <a href="#/editprofile">Edit Profil</a>
                             <a href="#">Logout</a>
-                          </div>
                         </div>
+                      </div>
                         <div class="col-lg-12" align="right">
                       </div>
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <ul>
-                          <li>Favourite Film<span>3</span></li>
-                          <li>Film Reviewed<span>16</span></li>
-                          <li>Member Since<span>8-16-2023</span></li>
+                          <li>Favourite Film<span id='film_favorit'>3</span></li>
+                          <li>Film Reviewed<span id='film_review'>16</span></li>
+                          <li>Member Since<span id='date_created'>8-16-2023</span></li>
                         </ul>
                       </div>
                     </div>
@@ -116,6 +120,29 @@ const profile = {
 
     async afterRender() {
         console.log('afterrender jalan');
+        const localAccount = JSON.parse(localStorage.getItem('user'))
+
+        const app = initializeApp(firebaseConfig);
+
+        const db = getFirestore(app);
+        const docRef = doc(db, "member", localAccount.id);
+        const docSnap = await getDoc(docRef);
+        const dataMember = docSnap.data();
+
+        const namaContainer = document.getElementById('namaMember');
+        const bioContainer = document.getElementById('bioMember');
+        const statusContainer = document.getElementById('statusMember');
+        const favoritCounter = document.getElementById('film_favorit');
+        const reviewCounter = document.getElementById('film_review');
+        const dateCreatedContainer = document.getElementById('date_created');
+
+        namaContainer.innerText = dataMember.nama;
+        bioContainer.innerText = dataMember.bio ? dataMember.bio : "Hi I'm new here, welcome to my profile";
+        statusContainer.innerText = dataMember.status;
+        favoritCounter.innerText = dataMember.film_favorit.length;
+        reviewCounter.innerText = dataMember.film_review.length;
+        dateCreatedContainer.innerText = dataMember.date_created;
+
     }
 }
 

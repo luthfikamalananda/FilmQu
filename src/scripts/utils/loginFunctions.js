@@ -27,6 +27,7 @@ const loginFunctions = {
                 showCloseButton: true,
                 })
             const dataToDB = {
+                id: user.id,
                 status: 'active',
                 last_login: new Date().toISOString().split('T')[0],
                 email: user.email,
@@ -35,7 +36,8 @@ const loginFunctions = {
                 date_created: user.date_created,
                 film_favorit: user.film_favorit,
                 film_review: user.film_review,
-                foto_profil: user.foto_profil
+                foto_profil: user.foto_profil,
+                bio: user.bio
             }
             await setDoc(doc(db, "member", user.id), dataToDB);
 

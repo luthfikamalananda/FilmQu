@@ -101,6 +101,7 @@ const mainRegister = {
                     film_favorit: '',
                     film_review: '',
                     foto_profil: '',
+                    bio: '',
                 }
                 await registerFunctions.init(data);   
             }  
