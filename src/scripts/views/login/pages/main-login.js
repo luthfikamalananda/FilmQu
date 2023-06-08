@@ -1,4 +1,5 @@
 import { async } from "regenerator-runtime";
+import loginFunctions from "../../../utils/loginFunctions";
 // import loginFunctions from "../../../scripts/utils/loginFunctions";
 
 
@@ -62,17 +63,17 @@ const mainLogin = {
         console.log('afterrender jalan..');
 
 
-        // const loginForm=document.getElementById('loginForm');
-        // loginForm.addEventListener('submit', async(e) => {
-        //     const inputEmail = document.getElementById('form3Example3c')
-        //     const inputPassword = document.getElementById('form3Example4c')
-        //     e.preventDefault();
-        //     const data = {
-        //       email: inputEmail.value,
-        //       password: inputPassword.value
-        //     } 
-        //     await loginFunctions.init(data) 
-        // })
+        const loginForm=document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async(e) => {
+            const inputEmail = document.getElementById('form3Example3c')
+            const inputPassword = document.getElementById('form3Example4c')
+            e.preventDefault();
+            const data = {
+              email: inputEmail.value,
+              password: inputPassword.value
+            } 
+            await loginFunctions.init(data) 
+        })
     }
 }
 export default mainLogin;
