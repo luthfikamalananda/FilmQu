@@ -101,6 +101,13 @@ const detailPage = {
 
   async afterRender() {
     console.log("afterrender jalan");
+
+    // Authentication (Display Like Button)
+    if(!localStorage.getItem('user')) {
+      const likeButtonContainer = document.getElementById('likeButtonContainer');
+      likeButtonContainer.setAttribute('style', 'display: none;')
+    }
+
     const idMovie = UrlParser.parseActiveUrlWithoutCombiner();
     const detailMovie = await TheMovieDbSource.detailMovie(idMovie.id);
     console.log(detailMovie);

@@ -2,7 +2,7 @@ import 'regenerator-runtime';
 import AppHome from './views/home/app';
 
 
-
+// Authentication
 if(localStorage.getItem('user')) {
   const user = localStorage.getItem('user');
   const data = JSON.parse(user)
@@ -28,6 +28,8 @@ window.addEventListener('hashchange', () => {
     appHome.renderPage();
   });
 
+
+// Search Function
 const searchText = document.getElementById('searchText');
 searchText.addEventListener('keydown', (e) => {
   console.log(e);
@@ -40,6 +42,7 @@ searchText.addEventListener('keydown', (e) => {
   
 })
 
+// Navbar Hamburger
 const hamburgerButton = document.getElementById('hamburger');
 const navbarContents = document.getElementById('navbar');
 hamburgerButton.addEventListener('click', (e) => {
