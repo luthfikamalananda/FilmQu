@@ -103,11 +103,7 @@ const detailPage = {
   async afterRender() {
     console.log("afterrender jalan");
 
-    // Authentication (Display Like Button)
-    if(!localStorage.getItem('user')) {
-      const likeButtonContainer = document.getElementById('likeButtonContainer');
-      likeButtonContainer.setAttribute('style', 'display: none;')
-    }
+    
 
     const memberData = JSON.parse(localStorage.getItem('user'));
 
@@ -247,7 +243,9 @@ const detailPage = {
                               <button class="btn btn-sm btn-primary pull-right" type="submit" "><i class="fa fa-pencil fa-fw"></i>Comment</button>
                             </div>
                     </div>
-                    </form>     
+                    </form>    
+                </div>
+                <div> 
                     <br>
                     <br>
                     <div class="comment mt-4 text-justify float-left">
@@ -362,8 +360,8 @@ const detailPage = {
       }
 
 
-    // Review Function
-      // Take value from star
+      // Review Function
+        // Take value from star
       let starValue = -1;
       const starReview = document.getElementsByClassName('star-input')
       Array.from(starReview).forEach(function(star) {
@@ -418,6 +416,14 @@ const detailPage = {
         }
         
       })
+    }
+
+    // Authentication (Display Like Button)
+    if(!localStorage.getItem('user')) {
+      const likeButtonContainer = document.getElementById('likeButtonContainer');
+      likeButtonContainer.setAttribute('style', 'display: none;')
+      const reviewForm = document.getElementById('reviewForm');
+      reviewForm.setAttribute('style', 'display:none;')
     }
 
   
