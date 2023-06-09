@@ -420,7 +420,7 @@ const detailPage = {
         <hr style="color:white;">
         <div>
           <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-          <h5>${data.data().member_nama} <i class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"><button></button></i></h5>
+          <h5>${data.data().member_nama} <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
           <span style="color:grey; text-align:right;"> ${data.data().date}</span>
           <br>
           <p style="color: white;padding-left:15px;">${data.data().content}</p>
