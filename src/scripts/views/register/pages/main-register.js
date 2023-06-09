@@ -4,7 +4,7 @@ import registerFunctions from "../../../utils/registerFunctions";
 
 const mainRegister = {
     async render() {
-        return `<section class="vh-100" style="background-image:url('../assets/images/bglogin.jpg');">
+        return `<section class="vh-100" style="background-image:url('../assets/images/bglog.jpg');">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11" border-radius: 23px";>
@@ -45,9 +45,9 @@ const mainRegister = {
                           </div>
                         </div>
 
-                        <div class="form-check d-flex justify-content-center mb-4" style="color:white;">
+                        <div class="form-check d-flex justify-content-center mb-4" style="color:grey; font-family: 'Poppins', sans-serif;">
                         <label class="form-check-label" for="form2Example3">
-                        Sudah memiliki akun? silahkan <a href="../login">Login Disini</a>
+                        Sudah memiliki akun? silahkan <a href="../login" style="color:#ec6090; font-family: 'Poppins', sans-serif;">Login Disini</a>
                         </label>
                         </div>
       

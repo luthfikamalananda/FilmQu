@@ -23,10 +23,14 @@ const profile = {
                           <span id='statusMember'>Active</span>
                           <h4 id='namaMember'>Alan Smithee</h4>
                           <p id='bioMember'>Hi I'm new here, welcome to my profile</p>
-                          <div class="main-border-button">
-                            <a href="#/editprofile">Edit Profil</a>
-                            <a href="javascript:void(0);" id='logoutBtn'>Logout</a>
-                        </div>
+                          <li>
+                            <th>
+                              <div class="main-border-button">
+                                <a href="#/editprofile">Edit Profil</a>
+                                <a href="javascript:void(0);" id='logoutBtn' style="background-color:#ec6090;color:white;">Logout</a>
+                              </div>
+                            </th>
+                          </li>
                       </div>
                         <div class="col-lg-12" align="right">
                       </div>
