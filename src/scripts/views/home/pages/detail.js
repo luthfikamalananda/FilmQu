@@ -3,7 +3,7 @@ import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 import firebaseConfig from "../../../globals/firebaseConfig";
-import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc, query, where } from "firebase/firestore";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc, query, where, orderBy } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { customAlphabet  } from "nanoid";
 
@@ -241,7 +241,7 @@ const detailPage = {
                             <textarea id='review-input' class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
                             <br>
                             <div class="mar-top clearfix" style="float:right;">
-                              <button class="btn btn-sm btn-primary pull-right" type="submit" "><i class="fa fa-pencil fa-fw"></i>Comment</button>
+                              <button class="btn btn-sm btn-primary pull-right" type="submit" id='submitBtn'><i class="fa fa-pencil fa-fw"></i>Upload Review</button>
                             </div>
                     </div>
                     </form>    
@@ -267,6 +267,7 @@ const detailPage = {
       const docRef = doc(db, "member", memberData.id);
       const docSnap = await getDoc(docRef);
       const favorite_movies = docSnap.data().film_favorit;
+      const reviewed_movies = docSnap.data().film_review;
       const found = favorite_movies.findIndex(element => element == idMovie.id)
       if (found > -1) {
         likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
@@ -338,7 +339,26 @@ const detailPage = {
       const reviewInput = document.getElementById('review-input');
       let reviewValue;
     
-      // Form
+      // Edit Review
+      const exist = reviewed_movies.findIndex(element => element == idMovie.id)
+      let reviewData;
+      console.log(exist);
+      if (exist > -1) {
+        const docRefReview = collection(db, "review");
+        const q = query(docRefReview, where("movie_id", "==", idMovie.id), where("member_id", "==", memberData.id));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          reviewData = doc.data()
+        });
+        reviewInput.value = reviewData.content
+        const star = document.getElementById(`star${reviewData.rating}`);
+        star.checked = true;
+        starValue = reviewData.rating;
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.innerText = 'Edit Review'
+      }
+
+      // Create Review Form
       const reviewForm = document.getElementById('reviewForm');
       reviewForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -357,8 +377,7 @@ const detailPage = {
         console.log(data);
         try {
           await setDoc(doc(db, 'film', idMovie.id), detailMovie)
-          const nanoid = customAlphabet('1234567890',8)
-          await setDoc(doc(db, "review", `review_${nanoid()}`), data);
+          await setDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`), data);
           Swal.fire({
             icon: 'success',
             title: 'Review Berhasil',
@@ -378,8 +397,9 @@ const detailPage = {
             'error'
           )
         }
-        
       })
+
+      
     }
 
     // Read Review Function
