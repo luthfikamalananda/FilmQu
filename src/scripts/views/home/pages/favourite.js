@@ -16,7 +16,7 @@ const favourite = {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section">
-                                    <h4>Your Favourite Movies</h4>
+                                    <h4>Film Favorit Anda</h4>
                                 </div>
                                 <div class="row" id='favorit-film'>
                                 </div>
