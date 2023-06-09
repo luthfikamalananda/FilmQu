@@ -1,12 +1,12 @@
 const editProfile = {
     async render() {
         return ` 
-        <div class="container-fluid">
+        <div class="container-fluid" style="max-width:45%;">
         <div class="row" >
             <div class="page-content" style="background-color:#27292a;" align="center">
             <div class="row" align="">
               </div>
-              <div align="center" style="color: white; max-width:65%;" align="center" >
+              <div align="center" style="color: white; max-width:auto;" align="center" >
               <div class="heading-section" align="center" style="padding : 20px;">
               <h4><em>Edit</em> Profil</h4>
               </div>
