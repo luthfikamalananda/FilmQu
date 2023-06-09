@@ -4,9 +4,9 @@ const editProfile = {
         <div class="container-fluid" style="max-width:45%;">
         <div class="row" >
             <div class="page-content" style="background-color:#27292a;" align="center">
-            <div class="row" align="">
+            <div class="row">
               </div>
-              <div align="center" style="color: white; max-width:auto;" align="center" >
+              <div align="center" style="color:#ec6090; max-width:auto; background-color:#1f2122; border-radius:20px" align="center" >
               <div class="heading-section" align="center" style="padding : 20px;">
               <h4><em>Edit</em> Profil</h4>
               </div>
@@ -46,8 +46,8 @@ const editProfile = {
                   </div>
                 </div>
 
-                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                  <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;"">Edit</button>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4" style="padding-bottom:20px;">
+                  <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;padding">Edit</button>
                 </div>
 
               </form>
