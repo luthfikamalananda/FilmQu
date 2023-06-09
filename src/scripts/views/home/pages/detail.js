@@ -3,7 +3,7 @@ import UrlParser from "../../../routes/url-parser";
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 import firebaseConfig from "../../../globals/firebaseConfig";
-import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc, query, where } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { customAlphabet  } from "nanoid";
 
@@ -103,7 +103,8 @@ const detailPage = {
   async afterRender() {
     console.log("afterrender jalan");
 
-    
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
     const memberData = JSON.parse(localStorage.getItem('user'));
 
@@ -245,45 +246,10 @@ const detailPage = {
                     </div>
                     </form>    
                 </div>
-                <div> 
+                <div id='review-container'> 
                     <br>
                     <br>
-                    <div class="comment mt-4 text-justify float-left">
-                    <hr style="color:white;">
-                      <div>
-                          <h5>Jhon Doe</h5>
-                          <span style="color:grey; text-align:right;"> 20 October, 2018</span>
-                          <br>
-                          <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="text-justify darker mt-4 float-right">
-                    <hr style="color:white;">
-                        <h5>Rob Simpson</h5>
-                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
-                        <br>
-                        <div style="color:white;">
-                          <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="comment mt-4 text-justify">
-                    <hr style="color:white;">
-                        <h5>Jhon Doe</h5>
-                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
-                        <br>
-                        <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                    </div>
-                    <br>
-                    <div class="darker mt-4 text-justify">
-                    <hr style="color:white;">
-                        <h5>Rob Simpson</h5>
-                        <span style="color:grey; text-align:right;"> 20 October, 2018</span>
-                        <br>
-                        <p style="color: white;padding-left:50px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                    </div>
-                    <br>
+                    
                 </div>
             </div>
         </div>
@@ -292,14 +258,12 @@ const detailPage = {
       </div>`;
 
       // Like Button Function
+      // Authentication for Logged in
     if(localStorage.getItem('user')) {
     
       const likeButton = document.getElementById('likeButton');
       const likeContent = document.getElementById('likeContent')
 
-      const app = initializeApp(firebaseConfig);
-
-      const db = getFirestore(app);
       const docRef = doc(db, "member", memberData.id);
       const docSnap = await getDoc(docRef);
       const favorite_movies = docSnap.data().film_favorit;
@@ -360,7 +324,7 @@ const detailPage = {
       }
 
 
-      // Review Function
+      // ADD Review Function
         // Take value from star
       let starValue = -1;
       const starReview = document.getElementsByClassName('star-input')
@@ -418,6 +382,26 @@ const detailPage = {
       })
     }
 
+    // Read Review Function
+    const docRefReview = collection(db, "review");
+    const q = query(docRefReview, where("movie_id", "==", idMovie.id));
+    const reviewData = await getDocs(q);
+    const reviewContainer = document.getElementById('review-container');
+    reviewData.forEach(data => {
+      reviewContainer.innerHTML += `
+      <div class="comment mt-4 text-justify float-left">
+        <hr style="color:white;">
+        <div>
+          <h5>${data.data().member_nama}</h5>
+          <span style="color:grey; text-align:right;"> ${data.data().date}</span>
+          <br>
+          <p style="color: white;padding-left:50px;">${data.data().content}</p>
+        </div>
+      </div>
+      <br>
+      `
+    })
+
     // Authentication (Display Like Button)
     if(!localStorage.getItem('user')) {
       const likeButtonContainer = document.getElementById('likeButtonContainer');
@@ -425,9 +409,8 @@ const detailPage = {
       const reviewForm = document.getElementById('reviewForm');
       reviewForm.setAttribute('style', 'display:none;')
     }
-
   
-  },
+  }
 };
 
 export default detailPage;
