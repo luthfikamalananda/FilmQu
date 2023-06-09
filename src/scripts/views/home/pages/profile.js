@@ -53,6 +53,14 @@ const profile = {
                               </div>
                             </div>
                           </div>
+                          <hr style="color:#6a6666; ">
+                          <div class="row" id='reviewedfilmContainer'>
+                            <div class="col-lg-12">
+                              <div class="heading-section">
+                                <h4>Reviewed Film</h4>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -125,6 +133,33 @@ const profile = {
             })
             console.log(filmDB.id, '==>', filmDB.data());
         });
+
+         // Favorite Movie Container
+         const reviewedContainer = document.getElementById('reviewedfilmContainer');
+        
+         const memberReviewed = docSnap.data().film_review;
+ 
+         const querySnapshotReviewed = await getDocs(collection(db, "film"));
+         querySnapshotReviewed.forEach((filmDB) => {
+             memberReviewed.forEach((idMovie) => {
+                 if (filmDB.id == idMovie) {
+                   reviewedContainer.innerHTML += `
+                     <div class="col-lg-3 col-sm-6">
+                       <div class="item">
+                               <div class="thumb">
+                                             <img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+                                             <a href="#/detail/${filmDB.id}"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
+                                     </div>
+                               <div class="down-content">
+                                 <h4 class='titleName'><a href="#/detail/${filmDB.id}">${filmDB.data().title}</h4></a>
+                                       <a><span><i class="fa fa-star" style="color: yellow;"></i> ${filmDB.data().vote_average}</span>
+                               </div>
+                             </div>
+                     </div>`
+                 }
+             })
+             console.log(filmDB.id, '==>', filmDB.data());
+         });
 
         // Logout
         const logoutBtn = document.getElementById('logoutBtn');
