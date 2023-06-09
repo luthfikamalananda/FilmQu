@@ -212,7 +212,7 @@ const detailPage = {
             <form class="mx-1 mx-md-4" id="reviewForm">
                
             <div class="rate" style="max-width:auto;">
-            <h5 >Rate</h5>
+            <h5 style="color:#ec6090;">Rate</h5>
             <input class = 'star-input' type="radio" id="star10" name="rate" value="10" />
             <label for="star10" title="text">10 stars</label>
             <input class = 'star-input' type="radio" id="star9" name="rate" value="9" />
@@ -240,8 +240,8 @@ const detailPage = {
                     <div class="darker mt-4 text-justify">
                             <textarea id='review-input' class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
                             <br>
-                            <div class="mar-top clearfix" style="float:right;">
-                              <button class="btn btn-sm btn-primary pull-right" type="submit" id='submitBtn'><i class="fa fa-pencil fa-fw"></i>Upload Review</button>
+                            <div class="mar-top clearfix" style="float:right; padding-bottom:20px;">
+                              <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;" id='submitBtn'><i class="fa fa-pencil fa-fw"></i>Upload Review</button>
                             </div>
                     </div>
                     </form>    
