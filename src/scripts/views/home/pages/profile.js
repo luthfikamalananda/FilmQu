@@ -22,7 +22,7 @@ const profile = {
                         <div class="main-info header-text">
                           <span id='statusMember'>Active</span>
                           <h3 id='namaMember'>Alan Smithee</h3>
-                          <p id='bioMember'>Hi I'm new here, welcome to my profile</p>
+                          <p id='bioMember' style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
                           <li>
                             <th>
                               <div class="main-border-button">
@@ -105,7 +105,7 @@ const profile = {
 
         // Edit Profile Button 
         const editBtn = document.getElementById('editBtn');
-        editBtn.setAttribute('href', `#/editprofile/${localAccount.id}`)
+        editBtn.setAttribute('href', `#/editprofile`)
 
         // Favorite Movie Container
         const favoritContainer = document.getElementById('favoritfilmContainer');
@@ -134,7 +134,7 @@ const profile = {
             console.log(filmDB.id, '==>', filmDB.data());
         });
 
-         // Favorite Movie Container
+         // Reviewed Movie Container
          const reviewedContainer = document.getElementById('reviewedfilmContainer');
         
          const memberReviewed = docSnap.data().film_review;
