@@ -9,9 +9,10 @@ import { initializeApp } from "firebase/app";
 const editProfile = {
     async render() {
         return ` 
-        <div class="container-fluid" style="max-width:45%;">
+        <div class="container-fluid">
         <div class="row" >
             <div class="page-content" style="background-color:#27292a;" align="center">
+            
             <div class="row">
               </div>
               <div align="center" style="color:#ec6090; max-width:auto; background-color:#1f2122; border-radius:20px" align="center" >
@@ -19,7 +20,6 @@ const editProfile = {
               <h4>Edit Profil</h4>
               </div>
                 <form class="mx-1 mx-md-4" id="editprofform">
-
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
@@ -42,7 +42,11 @@ const editProfile = {
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4" style="padding-bottom:20px;">
-                    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;padding">Konfirmasi</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;padding">Konfirmasi</button>   
+                    </div>
+
+                  <div class="d-flex justify-content-left mx-4 mb-3 mb-lg-4" style="padding-bottom:0px;">
+                    
                   </div>
 
               </form>
