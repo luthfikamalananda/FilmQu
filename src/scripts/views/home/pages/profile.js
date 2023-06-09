@@ -26,7 +26,7 @@ const profile = {
                           <li>
                             <th>
                               <div class="main-border-button">
-                                <a href="#/editprofile">Edit Profil</a>
+                                <a id='editBtn' href="#/editprofile">Edit Profil</a>
                                 <a href="javascript:void(0);" id='logoutBtn' style="background-color:#ec6090;color:white;">Logout</a>
                               </div>
                             </th>
@@ -94,6 +94,10 @@ const profile = {
         favoritCounter.innerText = dataMember.film_favorit.length;
         reviewCounter.innerText = dataMember.film_review.length;
         dateCreatedContainer.innerText = dataMember.date_created;
+
+        // Edit Profile Button 
+        const editBtn = document.getElementById('editBtn');
+        editBtn.setAttribute('href', `#/editprofile/${localAccount.id}`)
 
         // Favorite Movie Container
         const favoritContainer = document.getElementById('favoritfilmContainer');

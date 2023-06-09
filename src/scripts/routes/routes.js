@@ -36,7 +36,7 @@ const homeRoutes = {
   '/reviewed': reviewed,
   '/search/:id': searchPage,
   '/detail/:id':detailPage,
-  '/editprofile': editProfile,
+  '/editprofile/:id': editProfile,
   '/editdata/:id': 'dsd',
 }
 
