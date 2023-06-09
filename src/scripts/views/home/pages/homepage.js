@@ -43,6 +43,7 @@ const homePage = {
                             <p style="color:white;">Tempatnya Review Film Yang Asik Menarik Bagi Pecinta Film</p>
                             <br>
                             <br>
+                            <br>
                             </div>
                         </div>
                     </div>
