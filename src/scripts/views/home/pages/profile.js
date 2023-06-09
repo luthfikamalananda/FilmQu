@@ -26,7 +26,7 @@ const profile = {
                           <li>
                               <div class="main-border-button">
                                 <a id='editBtn' href="#/editprofile">Edit Profil</a>
-                                <a id='editBtn' href="#/editprofile">Ganti Password</a>
+                                <a id='editBtn' href="#/editpassword">Ganti Password</a>
                               </div>
                           </li>
                           <li>

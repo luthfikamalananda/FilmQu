@@ -8,6 +8,7 @@
 // import profil from "../../views/home/pages/profil";
 // import mainLogin from "../../views/login/pages/main-login";
 import detailPage from "../views/home/pages/detail";
+import editPassword from "../views/home/pages/editPassword";
 import editProfile from "../views/home/pages/editProfile";
 import favourite from "../views/home/pages/favourite";
 import homePage from "../views/home/pages/homepage";
@@ -37,12 +38,9 @@ const homeRoutes = {
   '/search/:id': searchPage,
   '/detail/:id':detailPage,
   '/editprofile': editProfile,
+  '/editpassword': editPassword,
   '/editdata/:id': 'dsd',
 }
-
-// const HomeRoutes = {
-//   '/': dashboardHome,
-// }
 
 export {
    loginRoutes, registerRoutes, homeRoutes
