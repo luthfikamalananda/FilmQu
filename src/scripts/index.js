@@ -51,7 +51,6 @@ hamburgerButton.addEventListener('click', (e) => {
   hamburgerButton.setAttribute('class', 'menu-trigger active')
   navbarContents.setAttribute('style', 'display: block;')
   if (hamburgerAtrributes == 'menu-trigger active') {
-    console.log('ngandung');
     hamburgerButton.setAttribute('class', 'menu-trigger')
     navbarContents.setAttribute('style', 'display: none;')
   }

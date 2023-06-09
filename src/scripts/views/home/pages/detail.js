@@ -5,6 +5,7 @@ import tmdbConfig from "../../../globals/tmdbConfig";
 import firebaseConfig from "../../../globals/firebaseConfig";
 import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { customAlphabet  } from "nanoid";
 
 const detailPage = {
   async render() {
@@ -204,50 +205,49 @@ const detailPage = {
         <div class="row">
           <div class="col-lg-12">
             <div class="heading-section" align="center">
-              <h4><em>Review</em> Film</h4>
+              <h4>Review Film</h4>
             </div>
           </div>
         </div>
         <hr style="color:white;">
         <div class="row">
         <section>
-        <div class="container">
-            <div>
+            <form class="mx-1 mx-md-4" id="reviewForm">
+               
             <div class="rate" style="max-width:auto;">
             <h5 >Rate</h5>
-            <input type="radio" id="star10" name="rate" value="10" />
+            <input class = 'star-input' type="radio" id="star10" name="rate" value="10" />
             <label for="star10" title="text">10 stars</label>
-            <input type="radio" id="star9" name="rate" value="9" />
+            <input class = 'star-input' type="radio" id="star9" name="rate" value="9" />
             <label for="star9" title="text">9 stars</label>
-            <input type="radio" id="star8" name="rate" value="8" />
+            <input class = 'star-input' type="radio" id="star8" name="rate" value="8" />
             <label for="star8" title="text">8 stars</label>
-            <input type="radio" id="star7" name="rate" value="7" />
+            <input class = 'star-input' type="radio" id="star7" name="rate" value="7" />
             <label for="star7" title="text">7 stars</label>
-            <input type="radio" id="star6" name="rate" value="6" />
+            <input class = 'star-input' type="radio" id="star6" name="rate" value="6" />
             <label for="star6" title="text">6 stars</label>
-            <input type="radio" id="star5" name="rate" value="5" />
+            <input class = 'star-input' type="radio" id="star5" name="rate" value="5" />
             <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
+            <input class = 'star-input' type="radio" id="star4" name="rate" value="4" />
             <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
+            <input class = 'star-input' type="radio" id="star3" name="rate" value="3" />
             <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
+            <input class = 'star-input' type="radio" id="star2" name="rate" value="2" />
             <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
+            <input class = 'star-input' type="radio" id="star1" name="rate" value="1" />
             <label for="star1" title="text">1 star</label>
           </div>
           <br>
           <br>
-          <br>
-          <br>
                 <div>
                     <div class="darker mt-4 text-justify">
-                            <textarea class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
+                            <textarea id='review-input' class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
                             <br>
                             <div class="mar-top clearfix" style="float:right;">
                               <button class="btn btn-sm btn-primary pull-right" type="submit" "><i class="fa fa-pencil fa-fw"></i>Comment</button>
                             </div>
                     </div>
+                    </form>     
                     <br>
                     <br>
                     <div class="comment mt-4 text-justify float-left">
@@ -293,6 +293,7 @@ const detailPage = {
         </div>
       </div>`;
 
+      // Like Button Function
     if(localStorage.getItem('user')) {
     
       const likeButton = document.getElementById('likeButton');
@@ -360,8 +361,66 @@ const detailPage = {
         })
       }
 
-  }
 
+    // Review Function
+      // Take value from star
+      let starValue = -1;
+      const starReview = document.getElementsByClassName('star-input')
+      Array.from(starReview).forEach(function(star) {
+        star.addEventListener('click', () => {
+          starValue = star.value;
+        })
+      });
+      
+      // Take value textarea
+      const reviewInput = document.getElementById('review-input');
+      let reviewValue;
+    
+      // Form
+      const reviewForm = document.getElementById('reviewForm');
+      reviewForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        reviewValue = reviewInput.value;
+        console.log(reviewValue);
+        console.log(starValue);
+        const data = {
+          date: new Date().toISOString().split('T')[0],
+          content: reviewValue,
+          rating: starValue,
+          movie_id: idMovie.id,
+          member_id: memberData.id,
+          member_nama: memberData.nama,
+          member_email: memberData.email
+        }
+        console.log(data);
+        try {
+          await setDoc(doc(db, 'film', idMovie.id), detailMovie)
+          const nanoid = customAlphabet('1234567890',8)
+          await setDoc(doc(db, "review", `review_${nanoid()}`), data);
+          Swal.fire({
+            icon: 'success',
+            title: 'Review Berhasil',
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Tutup',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              location.reload();
+            } 
+          })
+        } catch (error) {
+          Swal.fire(
+            error,
+            'Review Gagal',
+            'error'
+          )
+        }
+        
+      })
+    }
+
+  
   },
 };
 
