@@ -98,8 +98,8 @@ const mainRegister = {
                     status: 'active',
                     date_created: new Date().toISOString().split('T')[0],
                     last_login: new Date().toISOString().split('T')[0],
-                    film_favorit: '',
-                    film_review: '',
+                    film_favorit: [],
+                    film_review: [],
                     foto_profil: '',
                     bio: '',
                 }

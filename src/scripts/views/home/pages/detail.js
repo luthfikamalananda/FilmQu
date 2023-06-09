@@ -294,8 +294,6 @@ const detailPage = {
       </div>`;
 
     if(localStorage.getItem('user')) {
-       const likeButtonContainer = document.getElementById('likeButtonContainer');
-       likeButtonContainer.setAttribute('style', 'display: none;')
     
       const likeButton = document.getElementById('likeButton');
       const likeContent = document.getElementById('likeContent')
