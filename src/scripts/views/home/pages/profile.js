@@ -21,7 +21,7 @@ const profile = {
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
                           <span id='statusMember'>Active</span>
-                          <h4 id='namaMember'>Alan Smithee</h4>
+                          <h3 id='namaMember'>Alan Smithee</h3>
                           <p id='bioMember'>Hi I'm new here, welcome to my profile</p>
                           <li>
                             <th>
