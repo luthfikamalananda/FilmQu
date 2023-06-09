@@ -42,10 +42,10 @@ const searchPage = {
             <div class="col-lg-3 col-sm-6">
                 <div class="item">
                     <a href='#/detail/${movie.id}'><img src="${movie.backdrop_path ? tmdbConfig.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
-                    <a href='#/detail/${movie.id}'><h4 class='titleName'>${movie.title}<br><span>Sandbox</span></h4></a>
+                    <a href='#/detail/${movie.id}'><h4 class='titleName'>${movie.title}<br><span>${movie.release_date}</span></h4></a>
                     <ul>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-                        <li><i class="fa fa-download"></i> 2.3M</li>
+                        <li><i class="fa fa-star"></i></li>
                     </ul>
                 </div>
             </div>`
