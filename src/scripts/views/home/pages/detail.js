@@ -379,9 +379,11 @@ const detailPage = {
           await setDoc(doc(db, 'film', idMovie.id), detailMovie)
           await setDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`), data);
           reviewed_movies.push(idMovie.id)
-          await updateDoc(doc(db, "member", memberData.id), {
-            film_review: reviewed_movies
-          })
+          if (exist == -1) {
+            await updateDoc(doc(db, "member", memberData.id), {
+              film_review: reviewed_movies
+            })
+          }
           Swal.fire({
             icon: 'success',
             title: 'Review Berhasil',
