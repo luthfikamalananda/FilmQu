@@ -266,8 +266,9 @@ const detailPage = {
 
       const docRef = doc(db, "member", memberData.id);
       const docSnap = await getDoc(docRef);
-      const favorite_movies = docSnap.data().film_favorit;
-      const reviewed_movies = docSnap.data().film_review;
+      const memberDataFB = docSnap.data();
+      const favorite_movies = memberDataFB.film_favorit;
+      const reviewed_movies = memberDataFB.film_review;
       const found = favorite_movies.findIndex(element => element == idMovie.id)
       if (found > -1) {
         likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
@@ -371,8 +372,8 @@ const detailPage = {
           rating: starValue,
           movie_id: idMovie.id,
           member_id: memberData.id,
-          member_nama: memberData.nama,
-          member_email: memberData.email
+          member_nama: memberDataFB.nama,
+          member_email: memberDataFB.email
         }
         console.log(data);
         try {
