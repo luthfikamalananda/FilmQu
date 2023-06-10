@@ -54,7 +54,7 @@ const profileMod = {
 
     async afterRender() {
         console.log('afterrender jalan');
-        const localAccount = JSON.parse(localStorage.getItem('user'))
+        const localAccount = JSON.parse(localStorage.getItem('moderator'))
 
         const app = initializeApp(firebaseConfig);
 
@@ -76,7 +76,7 @@ const profileMod = {
         // Logout
         const logoutBtn = document.getElementById('logoutBtn');
         logoutBtn.addEventListener('click', () => {
-          localStorage.removeItem('user');
+          localStorage.removeItem('moderator');
           Swal.fire({
             icon: 'success',
             title: 'Logout Berhasil',
