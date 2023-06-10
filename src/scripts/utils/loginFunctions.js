@@ -51,10 +51,14 @@ const loginFunctions = {
                 title: 'Login Gagal',
                 text: 'Pastikan data yang anda masukkan benar',
                 showCloseButton: true,
-                })
-            setTimeout(() => {
-                location.reload()
-            }, 2000);
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      window.location.href = '#/';
+                      location.reload();
+                    } 
+                  })
+            
         }
     }
 }
