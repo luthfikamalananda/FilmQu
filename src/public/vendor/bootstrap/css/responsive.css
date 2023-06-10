@@ -1,0 +1,33 @@
+@media screen  and (max-width: 425px) {
+    .responsive-p {
+        font-size: 10px;
+    }
+    .responsive-p-judul{
+        font-size: 15px;
+    }
+}
+
+@media screen  and (max-width: 768px) {
+    .responsive-p {
+        font-size: 12px;
+        
+    }
+}
+
+@media screen  and (min-width: 320px) {
+    .responsive-p {
+        
+    }
+}
+
+@media screen  and (min-width: 320px) {
+    .responsive-p {
+        
+    }
+}
+
+@media screen  and (min-width: 320px) {
+    .responsive-p {
+        
+    }
+}

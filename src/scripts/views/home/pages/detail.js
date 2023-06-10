@@ -164,7 +164,7 @@ const detailPage = {
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="left-info">
-                    <p align="center" style="color:#ec6090;font-size: 20px; font-weight: bold;">INFO<p>
+                    <p align="center" class="responsive-p-judul" style="color:#ec6090;font-weight: bold;">INFO<p>
                     <hr style="color:white;">
                       <div class="left">
                         <h4>${genreMovie}</h4>
@@ -178,7 +178,7 @@ const detailPage = {
                   </div>
                   <div class="col-lg-6">
                     <div class="right-info" align="center">
-                    <p align="center" style="color:#ec6090;font-size: 20px; font-weight: bold;">RATING<p>
+                    <p align="center" class="responsive-p-judul" style="color:#ec6090; font-weight: bold;">RATING<p>
                     <hr style="color:white;">
                       <ul>
                         <li><i class="fa fa-star"></i> ${

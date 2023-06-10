@@ -8,10 +8,10 @@ const profile = {
         return ` <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
-            <div class="page-content">
+            <div class="page-content" style="padding:20px;">
     
               <!-- ***** Banner Start ***** -->
-              <div class="row" style="padding:20px;">
+              <div class="row">
                 <div class="col-lg-12">
                   <div class="main-profile ">
                     <div class="row">
@@ -22,7 +22,7 @@ const profile = {
                         <div class="main-info header-text">
                           <span id='statusMember'>Active</span>
                           <h3 id='namaMember'>Alan Smithee</h3>
-                          <p id='bioMember' style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
+                          <p id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
                           <li>
                               <div class="main-border-button">
                                 <a id='editBtn' href="#/editprofile">Edit Profil</a>
