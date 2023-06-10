@@ -1,12 +1,19 @@
-@media screen  and (max-width: 425px) {
+@media screen  and (min-width: 425px) {
     .responsive-p {
-        font-size: 9px !important;
+        font-size: 14px !important;
     }
     .responsive-p-judul{
+        font-size: 18px !important;
+    }
+    .responsive-h4-detail{
         font-size: 15px !important;
     }
-    .responsive-h4{
-        
+
+    .responsive-h4-homepage{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
         font-size: 10px !important;
     }
 
@@ -15,11 +22,11 @@
     }
 
     .responsive-span{
-        font-size: 10px !important;
+        font-size: 14px !important;
     }
 
     .responsive-li{
-        font-size: 10px !important;
+        font-size: 14px !important;
     }
 
 
@@ -34,22 +41,53 @@
     .responsive-p-judul{
         font-size: 20px !important;
     }
+
+    .responsive-h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+
 }
 
-@media screen  and (min-width: 769x) {
-    .responsive-p {
-        
+@media screen  and (max-width: 768px) {
+    .responsive-page-content{
+        padding: 0px !important;
+        background-color: transparent !important;
+    }
+
+    .responsive-container-fluid{
+        max-width: 100% !important;
+    }
+
+    .responsive-most-popular {
+        padding: 0 !important;
+    }
+    .star-rating{
+        display: none;
+    }
+
+    .responsive-h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
     }
 }
 
-@media screen  and (min-width: 320px) {
-    .responsive-p {
-        
+
+@media screen  and (min-width: 1024px) {
+    .responsive-h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
     }
 }
 
-@media screen  and (min-width: 320px) {
-    .responsive-p {
-        
+@media screen  and (min-width: 1440) {
+    .responsive-h4{
+        max-width: 200px;
     }
 }

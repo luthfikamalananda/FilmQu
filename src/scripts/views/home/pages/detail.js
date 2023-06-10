@@ -12,7 +12,7 @@ const detailPage = {
     return `<div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="page-content" id='detailContainer'>
+            <div class="page-content responsive-page-content" id='detailContainer'>
     
               <!-- ***** Featured Start ***** -->
               <div class="row">
@@ -167,7 +167,7 @@ const detailPage = {
                     <p align="center" class="responsive-p-judul" style="color:#ec6090;font-weight: bold;">INFO<p>
                     <hr style="color:white;">
                       <div class="left">
-                        <h4 class='responsive-h4'>${genreMovie}</h4>
+                        <h4 class='responsive-h4-detail'>${genreMovie}</h4>
                         <span class="responsive-span">${detailMovie.release_date}</span>
                       </div>
                       <ul>

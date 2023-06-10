@@ -6,7 +6,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 150px;
 }
 
 .like {
@@ -66,8 +66,9 @@
 }
 
 @media screen  and (max-width: 576px) {
-    .star-rating{
-        display: none;
+    
+    .titleName {
+        max-width: 150px;
     }
 }
 
@@ -85,7 +86,7 @@
 
 @media screen  and (min-width: 1024px) {
     .titleName {
-        max-width: 80px;
+        max-width: 200px;
     }
     #carouselExampleControls{
         display: flex;
