@@ -427,8 +427,6 @@ const detailPage = {
           )
         }
       })
-
-      
     }
 
     // Read Review Function
@@ -436,9 +434,25 @@ const detailPage = {
     const q = query(docRefReview, where("movie_id", "==", idMovie.id));
     const reviewData = await getDocs(q);
     reviewData.forEach(data => {
-      if (data.data().member_id != memberData.id) {
+      if (localStorage.getItem('user')) {
+        if (data.data().member_id != memberData.id) {
+          reviewContainer.innerHTML += `
+          <div class="comment mt-4 text-justify float-left">
+          <hr style="color:white;">
+          <div>
+            <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
+            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <span style="color:grey; text-align:right;"> ${data.data().date}</span>
+            <br>
+            <p style="color: white;padding-left:15px;">${data.data().content}</p>
+          </div>
+        </div>
+        <br>
+        `
+        }
+      } else {
         reviewContainer.innerHTML += `
-        <div class="comment mt-4 text-justify float-left">
+          <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
             <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
