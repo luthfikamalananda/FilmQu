@@ -11,7 +11,7 @@ const profile = {
             <div class="page-content">
     
               <!-- ***** Banner Start ***** -->
-              <div class="row">
+              <div class="row" style="padding:20px;">
                 <div class="col-lg-12">
                   <div class="main-profile ">
                     <div class="row">

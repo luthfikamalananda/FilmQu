@@ -9,7 +9,7 @@ const reviewed = {
         return `<div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-content">
+                <div class="page-content" style="padding:20px;">
 
                     <!-- ***** Most Popular Start ***** -->
                     <div class="most-popular" style="margin-top:0;">

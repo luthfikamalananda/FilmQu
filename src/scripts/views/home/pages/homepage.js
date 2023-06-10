@@ -7,7 +7,7 @@ const homePage = {
         return `<div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-content">
+                <div class="page-content" style="padding:20px;">
 
 
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="max-height:auto; ">
@@ -59,12 +59,12 @@ const homePage = {
 
                     <!-- ***** Most Popular Start ***** -->
                     <div class="most-popular">
-                        <div class="row">
-                            <div class="col-lg-12">
+                        <div class="row" >
+                            <div class="col-lg-12" >
                                 <div class="heading-section">
                                     <h4>Film Sedang Tayang</h4>
                                 </div>
-                                <div class="row" id='sedang-tayang'>
+                                <div class="row" id='sedang-tayang' >
                                 </div>
                             </div>
                         </div>
