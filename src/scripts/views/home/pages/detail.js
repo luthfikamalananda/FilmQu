@@ -285,6 +285,7 @@ const detailPage = {
               showDenyButton: false,
               showCancelButton: false,
               confirmButtonText: 'Tutup',
+              allowOutsideClick: false
             }).then((result) => {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
@@ -313,6 +314,7 @@ const detailPage = {
               showDenyButton: false,
               showCancelButton: false,
               confirmButtonText: 'Tutup',
+              allowOutsideClick: false
             }).then((result) => {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
@@ -410,6 +412,7 @@ const detailPage = {
             showDenyButton: false,
             showCancelButton: false,
             confirmButtonText: 'Tutup',
+            allowOutsideClick: false
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
