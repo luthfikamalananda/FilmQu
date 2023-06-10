@@ -12,6 +12,7 @@ import editPassword from "../views/home/pages/editPassword";
 import editProfile from "../views/home/pages/editProfile";
 import favourite from "../views/home/pages/favourite";
 import homePage from "../views/home/pages/homepage";
+import otherProfile from "../views/home/pages/otherProfile";
 import profile from "../views/home/pages/profile";
 import reviewed from "../views/home/pages/reviewed";
 import searchPage from "../views/home/pages/search";
@@ -34,6 +35,7 @@ const homeRoutes = {
   '/': homePage,
   '/profile': profile,
   '/favourite': favourite,
+  '/profile/:id': otherProfile,
   '/reviewed': reviewed,
   '/search/:id': searchPage,
   '/detail/:id':detailPage,
