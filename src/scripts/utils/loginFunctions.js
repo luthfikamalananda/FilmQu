@@ -29,7 +29,7 @@ const loginFunctions = {
                     showCloseButton: true,
                     allowOutsideClick: false
                 })
-                localStorage.setItem('user', JSON.stringify(mod))
+                localStorage.setItem('moderator', JSON.stringify(mod))
                 setTimeout(() => {
                     window.location.href = './'
                 }, 2000);
