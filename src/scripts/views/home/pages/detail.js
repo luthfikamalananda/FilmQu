@@ -157,7 +157,7 @@ const detailPage = {
         <div class="game-details">
           <div class="row">
             <div class="col-lg-12">
-              <h2 id='titleMovie'>${detailMovie.title}</h2>
+              <h2 id='titleMovie' class="responsive-h2">${detailMovie.title}</h2>
             </div>
             <div class="col-lg-12">
               <div class="content">
@@ -167,8 +167,8 @@ const detailPage = {
                     <p align="center" class="responsive-p-judul" style="color:#ec6090;font-weight: bold;">INFO<p>
                     <hr style="color:white;">
                       <div class="left">
-                        <h4>${genreMovie}</h4>
-                        <span>${detailMovie.release_date}</span>
+                        <h4 class='responsive-h4'>${genreMovie}</h4>
+                        <span class="responsive-span">${detailMovie.release_date}</span>
                       </div>
                       <ul>
                         <li><br></li>
@@ -181,15 +181,15 @@ const detailPage = {
                     <p align="center" class="responsive-p-judul" style="color:#ec6090; font-weight: bold;">RATING<p>
                     <hr style="color:white;">
                       <ul>
-                        <li><i class="fa fa-star"></i> ${
+                        <li class='responsive-li'><i class="fa fa-star"></i> ${
                           detailMovie.vote_average
                         }</li>
-                        <li><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
+                        <li class='responsive-li'><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-lg-12" style="text-align:justify;">
-                    <p id='overviewMovie'>${detailMovie.overview}</p>
+                    <p id='overviewMovie' class="responsive-p">${detailMovie.overview}</p>
                   </div>
                 </div>
               </div>

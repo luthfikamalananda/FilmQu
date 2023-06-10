@@ -39,7 +39,7 @@
 
 @media screen  and (min-width: 320px) {
     .titleName {
-        max-width: 50px;
+        max-width: 20px;
     }
 
     #carouselExampleControls{
@@ -61,7 +61,13 @@
 
 @media screen  and (min-width: 576px) {
     .titleName {
-        max-width: 80px;
+        /* max-width: 80px; */
+    }
+}
+
+@media screen  and (max-width: 576px) {
+    .star-rating{
+        display: none;
     }
 }
 
