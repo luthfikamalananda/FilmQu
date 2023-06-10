@@ -439,7 +439,7 @@ const detailPage = {
     const reviewData = await getDocs(q);
     reviewData.forEach(data => {
       if (localStorage.getItem('user')) {
-        if (data.data().member_id != memberData.id) {
+        if (data.data().member_id != memberData.id) { // Display review without the account who already reviewd
           reviewContainer.innerHTML += `
           <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
@@ -481,13 +481,13 @@ const detailPage = {
           })
         }
         
-      } else {
+      } else { // Display all review
         reviewContainer.innerHTML += `
           <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
             <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> </h5>
+            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> <i id='btnDeleteReview' data-id='${data.data().member_id}' class="fas fa-trash-alt" style="color:pink; font-size:25px; float:right;"></i></h5>
             <span style="color:grey; text-align:right;"> ${data.data().date}</span>
             <br>
             <p style="color: white;padding-left:15px;">${data.data().content}</p>
@@ -498,14 +498,57 @@ const detailPage = {
       }
     })
 
-    // Authentication (Display Like Button)
+    // Hide Delete Button
+    const btnDeleteReview = document.querySelectorAll('#btnDeleteReview');
+    btnDeleteReview.forEach((btn) => {
+      btn.setAttribute('style', 'display:none')
+    })
+
+    // Authentication (Display Like Button & Display Review Form)
     if(!localStorage.getItem('user')) {
       const likeButtonContainer = document.getElementById('likeButtonContainer');
       likeButtonContainer.setAttribute('style', 'display: none;')
       const reviewForm = document.getElementById('reviewForm');
       reviewForm.setAttribute('style', 'display:none;')
     }
-  
+
+    // Authentication Moderator Display Delete Button
+    if (localStorage.getItem('moderator')) {
+      btnDeleteReview.forEach((btn) => {
+        btn.setAttribute('style', 'color:pink; font-size:25px; float:right;')
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          Swal.fire({
+            title: 'Apakah Anda Yakin Ingin Menghapus Review ini?',
+            showCancelButton: true,
+            confirmButtonColor: '#dd3333',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+          }).then( async (result) => {
+            if (result.isConfirmed) {
+              const reviewer_id = btn.getAttribute('data-id');
+              console.log(reviewer_id);
+              await deleteDoc(doc(db, "review", `${reviewer_id}_${idMovie.id}`)) // hapus review pada db review
+
+              const docSnap = await getDoc(doc(db, "member", reviewer_id)) // mengambil film_review
+              const reviewerData = docSnap.data();
+              const film_review = reviewerData.film_review;
+              const index = film_review.findIndex(element => element == idMovie.id) // mencari index id film pada film_review
+              
+              film_review.splice(index, 1) // menghapus film yang pernah di review pada field film_review
+
+              await updateDoc(doc(db, "member", reviewer_id), { // update database film_review dengan film_review yang telah dihapus filmnya
+                film_review: film_review
+              })
+              Swal.fire('Review Berhasil Dihapus', '', 'success').then(() => {
+                location.reload()
+              })
+            }
+          })
+          
+        })
+      })
+    }
   }
 };
 
