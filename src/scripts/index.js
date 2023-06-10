@@ -3,13 +3,17 @@ import AppHome from './views/home/app';
 
 
 // Authentication
+const navFavourite = document.getElementById('favouriteNavLI');
+const navReview = document.getElementById('reviewedNavLI');
 if(localStorage.getItem('user')) {
   const user = localStorage.getItem('user');
   const data = JSON.parse(user)
+  if (data.status == 'moderator') {
+    navFavourite.setAttribute('style', 'display: none;')
+    navReview.setAttribute('style', 'display: none;')
+  }
   document.getElementById('profileNav').innerHTML = ` ${data.nama.split(' ')[0]} <img src="assets/images/profile-header.jpg" alt="">`;
 } else {
-  const navFavourite = document.getElementById('favouriteNavLI');
-  const navReview = document.getElementById('reviewedNavLI');
   const navProfile = document.getElementById('profileNav');
   navFavourite.setAttribute('style', 'display: none;')
   navReview.setAttribute('style', 'display: none;')
