@@ -14,6 +14,7 @@ import favourite from "../views/home/pages/favourite";
 import homePage from "../views/home/pages/homepage";
 import otherProfile from "../views/home/pages/otherProfile";
 import profile from "../views/home/pages/profile";
+import profileMod from "../views/home/pages/profileMod";
 import reviewed from "../views/home/pages/reviewed";
 import searchPage from "../views/home/pages/search";
 import mainLogin from "../views/login/pages/main-login";
@@ -34,12 +35,13 @@ const loginRoutes ={
 const homeRoutes = {
   '/': homePage,
   '/profile': profile,
-  '/favourite': favourite,
   '/profile/:id': otherProfile,
+  '/editprofile': editProfile,
+  '/profilemod': profileMod,
+  '/favourite': favourite,
   '/reviewed': reviewed,
   '/search/:id': searchPage,
   '/detail/:id':detailPage,
-  '/editprofile': editProfile,
   '/editpassword': editPassword,
   '/editdata/:id': 'dsd',
 }
