@@ -260,6 +260,8 @@ const detailPage = {
     const reviewContainer = document.getElementById('review-container');
       // Like Button Function
       // Authentication for Logged in
+    let reviewed_movies;
+    let exist;
     if(localStorage.getItem('user')) {
     
       const likeButton = document.getElementById('likeButton');
@@ -269,7 +271,7 @@ const detailPage = {
       const docSnap = await getDoc(docRef);
       const memberDataFB = docSnap.data();
       const favorite_movies = memberDataFB.film_favorit;
-      const reviewed_movies = memberDataFB.film_review;
+      reviewed_movies = memberDataFB.film_review;
       const found = favorite_movies.findIndex(element => element == idMovie.id)
       if (found > -1) {
         likeContent.setAttribute('class', 'fa-sharp fa-solid fa-heart fa-beat')
@@ -348,7 +350,7 @@ const detailPage = {
       let reviewValue;
     
       // Edit Review
-      const exist = reviewed_movies.findIndex(element => element == idMovie.id)
+      exist = reviewed_movies.findIndex(element => element == idMovie.id)
       let reviewData;
       console.log(exist);
       if (exist > -1) {
@@ -365,19 +367,20 @@ const detailPage = {
         const submitBtn = document.getElementById('submitBtn');
         submitBtn.innerText = 'Edit Review'
         // Make sure user reviews always on top
+          // Member's own review
         reviewContainer.innerHTML += `
         <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
             <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${reviewData.rating}</p>
-            <h5>${reviewData.member_nama} <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <h5>${reviewData.member_nama} <i id='deleteOwnedReview' class="fas fa-trash-alt" style="color:pink; font-size:25px; float:right;"></i></h5>
             <span style="color:grey; text-align:right;"> ${reviewData.date}</span>
             <br>
             <p style="color: white;padding-left:15px;">${reviewData.content}</p>
           </div>
         </div>
         <br>
-        `
+        `;
       }
 
       // Create Review Form
@@ -427,6 +430,7 @@ const detailPage = {
           )
         }
       })
+
     }
 
     // Read Review Function
@@ -441,7 +445,7 @@ const detailPage = {
           <hr style="color:white;">
           <div>
             <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a></h5>
             <span style="color:grey; text-align:right;"> ${data.data().date}</span>
             <br>
             <p style="color: white;padding-left:15px;">${data.data().content}</p>
@@ -450,13 +454,40 @@ const detailPage = {
         <br>
         `
         }
+        // Delete Review Button Function
+        const deleteBtn = document.getElementById('deleteOwnedReview'); // Delete Review
+        if (deleteBtn) { // delete button only created when already reviewd, so that if the user hasn't review system cannot run the eventListener
+          deleteBtn.addEventListener('click',  async (e) => {
+            e.preventDefault()
+            console.log('tes');
+            Swal.fire({
+              title: 'Apakah Anda Yakin Ingin Menghapus Review',
+              showCancelButton: true,
+              confirmButtonColor: '#dd3333',
+              confirmButtonText: 'Hapus',
+              cancelButtonText: 'Batal'
+            }).then( async (result) => {
+              if (result.isConfirmed) {
+                await deleteDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`))
+                reviewed_movies.splice(exist, 1)
+                await updateDoc(doc(db, "member", memberData.id), {
+                  film_review: reviewed_movies
+                })
+                Swal.fire('Review Berhasil Dihapus', '', 'success').then(() => {
+                  location.reload()
+                })
+              }
+            })
+          })
+        }
+        
       } else {
         reviewContainer.innerHTML += `
           <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
             <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a> </h5>
             <span style="color:grey; text-align:right;"> ${data.data().date}</span>
             <br>
             <p style="color: white;padding-left:15px;">${data.data().content}</p>
