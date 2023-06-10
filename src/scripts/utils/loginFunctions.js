@@ -10,16 +10,25 @@ const db = getFirestore(app);
 
 const loginFunctions = {
     async init(data){
-        let user = ''
+        let user = '';
+        let mod = '';
         const q = query(collection(db, "member"), where("email", "==", data.email))
         const querySnapshot = await getDocs(q)
+        const qMod = query(collection(db, "moderator"), where("email", "==", data.email))
+        const querySnapshotMod = await getDocs(qMod)
+        if (querySnapshotMod.size > 0) {
+            querySnapshotMod.forEach((doc) => {
+                mod = doc.data();
+                mod.id = doc.id;
+            })
+        }
         if (querySnapshot.size > 0) {
             querySnapshot.forEach((doc) => {
                 user = doc.data();
                 user.id = doc.id;
             })
         }
-        if (user.password == data.password) {
+        if (user.password == data.password) { // Login Member
             Swal.fire({
                 icon: 'success',
                 title: 'Login Berhasil',
@@ -43,7 +52,7 @@ const loginFunctions = {
 
             localStorage.setItem('user', JSON.stringify(dataToDB))
             setTimeout(() => {
-                window.location.href = './'
+                window.location.href = '#/'
             }, 2000);
         } else{
             Swal.fire({
@@ -54,11 +63,31 @@ const loginFunctions = {
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                      window.location.href = '#/';
+                      window.location.href = './';
                       location.reload();
                     } 
                   })
-            
+        }
+        if (mod.password == data.password) { // Login Moderator
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Berhasil',
+                text: 'Selamat login anda berhasil',
+                showCloseButton: true,
+                allowOutsideClick: false
+            })
+            localStorage.setItem('user', JSON.stringify(mod))
+            setTimeout(() => {
+                window.location.href = './'
+            }, 2000);
+        } else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Gagal',
+                text: 'Pastikan data yang anda masukkan benar',
+                showCloseButton: true,
+                allowOutsideClick: false
+                })
         }
     }
 }
