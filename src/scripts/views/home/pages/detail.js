@@ -257,6 +257,7 @@ const detailPage = {
         </div>
       </div>`;
 
+    const reviewContainer = document.getElementById('review-container');
       // Like Button Function
       // Authentication for Logged in
     if(localStorage.getItem('user')) {
@@ -291,7 +292,11 @@ const detailPage = {
               } 
             })
           } catch (error) {
-            
+            Swal.fire(
+              error,
+              'Like Gagal',
+              'error'
+            )
           }
         })
       } else {
@@ -321,8 +326,8 @@ const detailPage = {
               'error'
             )
           }
-          
         })
+
       }
 
 
@@ -357,6 +362,20 @@ const detailPage = {
         starValue = reviewData.rating;
         const submitBtn = document.getElementById('submitBtn');
         submitBtn.innerText = 'Edit Review'
+        // Make sure user reviews always on top
+        reviewContainer.innerHTML += `
+        <div class="comment mt-4 text-justify float-left">
+          <hr style="color:white;">
+          <div>
+            <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${reviewData.rating}</p>
+            <h5>${reviewData.member_nama} <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <span style="color:grey; text-align:right;"> ${reviewData.date}</span>
+            <br>
+            <p style="color: white;padding-left:15px;">${reviewData.content}</p>
+          </div>
+        </div>
+        <br>
+        `
       }
 
       // Create Review Form
@@ -413,21 +432,22 @@ const detailPage = {
     const docRefReview = collection(db, "review");
     const q = query(docRefReview, where("movie_id", "==", idMovie.id));
     const reviewData = await getDocs(q);
-    const reviewContainer = document.getElementById('review-container');
     reviewData.forEach(data => {
-      reviewContainer.innerHTML += `
-      <div class="comment mt-4 text-justify float-left">
-        <hr style="color:white;">
-        <div>
-          <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-          <h5>${data.data().member_nama} <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
-          <span style="color:grey; text-align:right;"> ${data.data().date}</span>
-          <br>
-          <p style="color: white;padding-left:15px;">${data.data().content}</p>
+      if (data.data().member_id != memberData.id) {
+        reviewContainer.innerHTML += `
+        <div class="comment mt-4 text-justify float-left">
+          <hr style="color:white;">
+          <div>
+            <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
+            <h5>${data.data().member_nama} <i id='buttonTest' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
+            <span style="color:grey; text-align:right;"> ${data.data().date}</span>
+            <br>
+            <p style="color: white;padding-left:15px;">${data.data().content}</p>
+          </div>
         </div>
-      </div>
-      <br>
-      `
+        <br>
+        `
+      }
     })
 
     // Authentication (Display Like Button)
