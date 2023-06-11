@@ -55,6 +55,7 @@ module.exports = {
     }),
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
+      maximumFileSizeToCacheInBytes: 5000000,
     }),
   ],
 };
