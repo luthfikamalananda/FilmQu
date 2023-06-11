@@ -7,7 +7,7 @@
         font-size: 18px !important;
     }
     .responsive-h4-detail{
-        font-size: 15px !important;
+        font-size: 12px !important;
     }
 
     .responsive-h5-detail{
@@ -30,6 +30,14 @@
         font-size: 10px !important;
     }
 
+    .responsive-h4-rev-like-profil{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60px !important;
+        font-size: 10px !important;
+    }
+
     .responsive-h2{
         font-size: 28px !important;
     }
@@ -38,8 +46,21 @@
         font-size: 14px !important;
     }
 
+    .responsive-span-profil{
+        font-size: 11px !important;
+    }
+
     .responsive-li{
         font-size: 14px !important;
+    }
+
+    .responsive-li-profil{
+        font-size: 12px !important;
+    }
+
+    .responsive-a-profil{
+        font-size: 9px !important;
+        padding: 10px 7px !important;
     }
 
     .btn-size{

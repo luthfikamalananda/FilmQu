@@ -5,10 +5,10 @@ import tmdbConfig from "../../../globals/tmdbConfig";
 
 const profile = {
     async render() {
-        return ` <div class="container-fluid">
+        return ` <div class="container-fluid responsive-container-fluid">
         <div class="row">
           <div class="col-lg-12">
-            <div class="page-content" style="padding:20px;">
+            <div class="page-content" responsive-page-content" style="padding:20px;>
     
               <!-- ***** Banner Start ***** -->
               <div class="row">
@@ -20,18 +20,18 @@ const profile = {
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
-                          <span id='statusMember'>Active</span>
+                          <span class="responsive-span" id='statusMember'>Active</span>
                           <h4 class="responsive-h4-detail" id='namaMember'>Alan Smithee</h4>
                           <p class="responsive-p" id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
                           <li>
-                              <div class="main-border-button">
-                                <a id='editBtn' href="#/editprofile">Edit Profil</a>
-                                <a id='editBtn' href="#/editpassword">Ganti Password</a>
+                              <div class="main-border-button btn-size">
+                                <a class="responsive-a-profil" id='editBtn' href="#/editprofile">Edit Profil</a>
+                                <a class="responsive-a-profil" id='editBtn' href="#/editpassword">Ganti Password</a>
                               </div>
                           </li>
                           <li>
                           <div class="main-border-button">
-                            <a href="javascript:void(0);" id='logoutBtn' style="background-color:#ec6090;color:white;">Logout</a>
+                            <a class="responsive-a-profil" href="javascript:void(0);" id='logoutBtn' style="background-color:#ec6090;color:white;">Logout</a>
                           </div>
                       </li>
                       </div>
@@ -40,9 +40,9 @@ const profile = {
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <ul>
-                          <li>Favourite Film<span id='film_favorit'>3</span></li>
-                          <li>Film Reviewed<span id='film_review'>16</span></li>
-                          <li>Member Since<span id='date_created'>8-16-2023</span></li>
+                          <li class="responsive-li-profil">Favourite Film<span class="responsive-span-profil" id='film_favorit'>3</span></li>
+                          <li class="responsive-li-profil">Film Reviewed<span class="responsive-span-profil" id='film_review'>16</span></li>
+                          <li class="responsive-li-profil">Member Since<span class="responsive-span-profil" id='date_created'>8-16-2023</span></li>
                         </ul>
                       </div>
                     </div>
@@ -120,17 +120,13 @@ const profile = {
             memberFavorite.forEach((idMovie) => {
                 if (filmDB.id == idMovie) {
                   favoritContainer.innerHTML += `
-                    <div class="col-lg-3 col-sm-6">
-                      <div class="item">
-                              <div class="thumb">
-                                            <img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-                                            <a href="#/detail/${filmDB.id}"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
-                                    </div>
-                              <div class="down-content">
-                                <h4 class='titleName'><a href="#/detail/${filmDB.id}">${filmDB.data().title}</h4></a>
-                                      <a><span><i class="fa fa-star" style="color: yellow;"></i> ${filmDB.data().vote_average}</span>
-                              </div>
-                            </div>
+                    <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="item" style="max-width:auto; padding:13px;>
+                        <div class="thumb">
+                          <a href='#/detail/${filmDB.id}'><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                          <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil'>${filmDB.data().title}</h4></a>
+                        </div>
+                      </div>
                     </div>`
                 }
             })
@@ -147,17 +143,13 @@ const profile = {
              memberReviewed.forEach((idMovie) => {
                  if (filmDB.id == idMovie) {
                    reviewedContainer.innerHTML += `
-                     <div class="col-lg-3 col-sm-6">
-                       <div class="item">
-                               <div class="thumb">
-                                             <img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-                                             <a href="#/detail/${filmDB.id}"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
-                                     </div>
-                               <div class="down-content">
-                                 <h4 class='titleName'><a href="#/detail/${filmDB.id}">${filmDB.data().title}</h4></a>
-                                       <a><span><i class="fa fa-star" style="color: yellow;"></i> ${filmDB.data().vote_average}</span>
-                               </div>
-                             </div>
+                     <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="item" style="max-width:auto; padding:13px;>
+                          <div class="thumb">
+                            <a href="#/detail/${filmDB.id}"><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+                            <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil'>${filmDB.data().title}</h4></a>
+                          </div>
+                        </div>
                      </div>`
                  }
              })
