@@ -8,7 +8,7 @@ const profile = {
         return ` <div class="container-fluid responsive-container-fluid">
         <div class="row">
           <div class="col-lg-12">
-            <div class="page-content" responsive-page-content" style="padding:20px;>
+            <div class="page-content" responsive-page-content" style="padding:20px;">
     
               <!-- ***** Banner Start ***** -->
               <div class="row">
@@ -20,9 +20,9 @@ const profile = {
                       </div>
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
-                          <span class="responsive-span" id='statusMember'>Active</span>
+                          <span class="responsive-span-profil" id='statusMember'>Active</span>
                           <h4 class="responsive-h4-detail" id='namaMember'>Alan Smithee</h4>
-                          <p class="responsive-p" id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
+                          <p class="responsive-p-bio" id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
                           <li>
                               <div class="main-border-button btn-size">
                                 <a class="responsive-a-profil" id='editBtn' href="#/editprofile">Edit Profil</a>
@@ -124,7 +124,7 @@ const profile = {
                       <div class="item" style="max-width:auto; padding:13px;>
                         <div class="thumb">
                           <a href='#/detail/${filmDB.id}'><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
-                          <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil'>${filmDB.data().title}</h4></a>
+                          <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil' style="margin-top:20px;">${filmDB.data().title}</h4></a>
                         </div>
                       </div>
                     </div>`
@@ -147,7 +147,7 @@ const profile = {
                         <div class="item" style="max-width:auto; padding:13px;>
                           <div class="thumb">
                             <a href="#/detail/${filmDB.id}"><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
-                            <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil'>${filmDB.data().title}</h4></a>
+                            <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil' style="margin-top:20px;">${filmDB.data().title}</h4></a>
                           </div>
                         </div>
                      </div>`

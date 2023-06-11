@@ -3,6 +3,10 @@
     .responsive-p {
         font-size: 14px !important;
     }
+
+    .responsive-p-bio {
+        font-size: 12px !important;
+    }
     .responsive-p-judul{
         font-size: 18px !important;
     }
@@ -81,6 +85,7 @@
 }
 
 @media screen  and (min-width: 768px) {
+
     .btn-size{
         font-size: 13px !important;
     }
@@ -109,9 +114,29 @@
         max-width: 150px;
     }
 
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px !important;
+        font-size: 10px !important;
+    }
+
+    .responsive-h4-rev-like-profil{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px !important;
+    }
+
 }
 
 @media screen  and (max-width: 768px) {
+    .responsive-a-profil{
+        font-size: 12px !important;
+        padding: 10px 7px !important;
+    }
+
     .btn-size{
         font-size: 13px !important;
     }
@@ -144,6 +169,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 150px;
+    }
+
+    .responsive-h4-rev-like-profil{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
+        font-size: 10px !important;
     }
 }
 
