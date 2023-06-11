@@ -2,6 +2,9 @@ import { async } from "regenerator-runtime"
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
 import UrlParser from "../../../routes/url-parser";
+import firebaseConfig from "../../../globals/firebaseConfig";
+import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
 const searchPage = {
     async render() {
@@ -46,6 +49,10 @@ const searchPage = {
     },
 
     async afterRender() {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const querySnapshotRating = await getDocs(collection(db, "rating"));
+
         const searchText = document.getElementById('searchTextInSearch');
         searchText.addEventListener('keydown', (e) => {
         // console.log(e);
@@ -63,7 +70,7 @@ const searchPage = {
         const searchedMovies = await TheMovieDbSource.searchMovie(query.id);
         const searchMoviesContainer = document.getElementById('searched-film');
         // console.log(searchedMovies);
-        
+
         searchedMovies.forEach(movie => {
             searchMoviesContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6 col-6">
@@ -72,7 +79,7 @@ const searchPage = {
                     <a href='#/detail/${movie.id}'><h4 class='responsive-h4-rev-like' style="max-width:auto;">${movie.title}<br><span>${movie.release_date}</span></h4></a>
                     <ul class="star-rating">
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-                        <li><i class="fa fa-star"></i></li>
+                        <li id='ratingFilmqu' data-id='${movie.id}'><i class="fa fa-star"></i> -</li>
                     </ul>
                 </div>
             </div>`
@@ -85,6 +92,17 @@ const searchPage = {
             </div>
         </div>`
 
+
+        // Rating Filmqu
+        const ratingFilmquContainer = document.querySelectorAll('#ratingFilmqu');
+        ratingFilmquContainer.forEach((container) => {
+            const movieId = container.getAttribute('data-id')
+            querySnapshotRating.forEach((ratingData) => {
+                if (ratingData.data().movie_id == movieId && ratingData.data().rating != 'NaN') {
+                    container.innerHTML = `<i class="fa fa-star"></i> ${ratingData.data().rating}`
+                }
+            })
+        })
     }
 }
 
