@@ -199,7 +199,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 150px;
+        max-width: 90px;
     }
 }
 
@@ -211,16 +211,15 @@
         text-overflow: ellipsis;
         max-width: 150px;
     }  
-}
 
-@media screen  and (min-width: 992px) {
-    .responsive-h4{
+    .responsive-h4-rev-like{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 180px;
-    }  
+        max-width: 150px;
+    }
 }
+
 
 @media screen  and (min-width: 1440px) {
 
