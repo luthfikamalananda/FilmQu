@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import AppHome from './views/home/app';
+import swRegister from './utils/sw-register';
 
 
 // Authentication
@@ -33,6 +34,7 @@ window.addEventListener('hashchange', () => {
   
   window.addEventListener('load', () => {
     appHome.renderPage();
+    swRegister();
   });
 
 
