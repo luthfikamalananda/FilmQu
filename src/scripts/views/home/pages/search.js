@@ -30,7 +30,7 @@ const searchPage = {
                     <!-- ***** Most Popular End ***** -->
 
                     <!-- ***** Most Popular Start ***** -->
-                    <div class="most-popular responsive-most-popular" style="margin-top:0px;">
+                    <div class="most-popular responsive-most-popular">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section">
