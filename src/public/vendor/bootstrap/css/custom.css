@@ -26,6 +26,18 @@
     cursor: pointer;
 }
 
+#searchTextInSearch::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #666;
+}
+#searchTextInSearch:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #666;
+}
+#searchTextInSearch::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #666;
+}
+#searchTextInSearch:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #666;
+}
 
 @media screen  and (max-width: 320px) {
     .titleName {

@@ -18,8 +18,8 @@ const searchPage = {
                                     <h4 style='text-align:center;'>Cari Film</h4>
                                 </div>
                                 <form id="search" action="#">
-                                        <input style='width:100%;height: 50px;border: 0;border-radius: 40px;padding: 10px 70px 10px 32px;' type="text" placeholder="Cari Film" id='searchTextInSearch' name="searchKeyword" />
-                                        <span class="fa fa-search" style="float: right;margin-right: 16px;margin-top: -32px;position: relative;z-index: 2;"></span>
+                                        <input style='background-color:#1f2122;color:white;width:100%;height: 50px;border: 0;border-radius: 40px;padding: 10px 70px 10px 32px;' type="text" placeholder="Film yang ingin anda cari.." id='searchTextInSearch' name="searchKeyword" />
+                                        <span class="fa fa-search" style="float: right;margin-right: 16px;margin-top: -32px;position: relative;z-index: 2;color:white;"></span>
                                 </form>
                             </div>
                         </div>
