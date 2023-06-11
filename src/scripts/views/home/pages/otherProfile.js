@@ -109,7 +109,7 @@ const otherProfile = {
                   <div class="col-lg-3 col-sm-6 col-6">
                   <div class="item" style="max-width:auto; padding:13px;>
                     <div class="thumb">
-                      <a href='#/detail/${filmDB.id}'><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                      <a href='#/detail/${filmDB.id}'><img class='lazyload' class='lazyload' style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
                       <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil' style="margin-top:20px;">${filmDB.data().title}</h4></a>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ const otherProfile = {
                    <div class="col-lg-3 col-sm-6 col-6">
                    <div class="item" style="max-width:auto; padding:13px;>
                      <div class="thumb">
-                       <a href="#/detail/${filmDB.id}"><img  style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
+                       <a href="#/detail/${filmDB.id}"><img class='lazyload' class='lazyload' style="border-radius: 23px;" src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="">
                        <a href="#/detail/${filmDB.id}"><h4 class='responsive-h4-rev-like-profil' style="margin-top:20px;">${filmDB.data().title}</h4></a>
                      </div>
                    </div>

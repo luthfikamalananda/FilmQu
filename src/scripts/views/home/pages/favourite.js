@@ -53,7 +53,7 @@ const favourite = {
                     favoriteContainer.innerHTML += `
                     <div class="col-lg-3 col-sm-6 col-6">
                         <div class="item" style="max-width:auto; padding:13px;">
-                            <a href='#/detail/${filmDB.id}'><img src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
+                            <a href='#/detail/${filmDB.id}'><img class='lazyload' src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
                             <a href='#/detail/${filmDB.id}'><h4 class='responsive-h4-rev-like' style="max-width:auto;">${filmDB.data().title}<br><span>${filmDB.data().release_date}</span></h4></a>
                             <ul class="star-rating">
                                 <li><i class="fa fa-star"></i> ${filmDB.data().vote_average}</li>

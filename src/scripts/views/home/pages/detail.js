@@ -131,7 +131,7 @@ const detailPage = {
             <div class="feature-banner header-text">
               <div class="row" align="center">
                 <div class="col-lg-2">
-                  <img src="${
+                  <img class='lazyload' src="${
                     detailMovie.poster_path
                       ? tmdbConfig.BASE_IMAGE_URL + detailMovie.poster_path
                       : "https://picsum.photos/id/666/800/450?grayscale"
@@ -139,7 +139,7 @@ const detailPage = {
                 </div>
                 <div class="col-lg-10">
                   <div class="thumb">
-                      <img src="${
+                      <img class='lazyload' src="${
                         detailMovie.backdrop_path
                           ? tmdbConfig.ORIGINAL_IMAGE_URL +
                             detailMovie.backdrop_path
