@@ -118,7 +118,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 100px;
+        max-width: 90px;
     }
 
     .responsive-h4-rev-like-profil{
@@ -203,7 +203,26 @@
     }
 }
 
+
+@media screen  and (min-width: 1184px) {
+    .responsive-h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+    }  
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+    }
+}
+
+
 @media screen  and (min-width: 1440px) {
+
     .responsive-h4{
         white-space: nowrap;
         overflow: hidden;
@@ -225,3 +244,4 @@
         max-width: 200px !important;
     }
 }
+

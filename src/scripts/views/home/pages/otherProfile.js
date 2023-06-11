@@ -24,17 +24,6 @@ const otherProfile = {
                           <span class="responsive-span-profil" id='statusMember'>Active</span>
                           <h4 class="responsive-h4-detail" id='namaMember'>Alan Smithee</h4>
                           <p class="responsive-p-bio" id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
-                          <li>
-                              <div class="main-border-button btn-size">
-                                <a class="responsive-a-profil" id='editBtn' href="#/editprofile">Edit Profil</a>
-                                <a class="responsive-a-profil" id='editBtn' href="#/editpassword">Ganti Password</a>
-                              </div>
-                          </li>
-                          <li>
-                          <div class="main-border-button">
-                            <a class="responsive-a-profil" href="javascript:void(0);" id='logoutBtn' style="background-color:#ec6090;color:white;">Logout</a>
-                          </div>
-                      </li>
                       </div>
                         <div class="col-lg-12" align="right">
                       </div>
