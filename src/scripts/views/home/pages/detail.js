@@ -210,9 +210,8 @@ const detailPage = {
         <div class="row">
         <section>
             <form class="mx-1 mx-md-4" id="reviewForm">
-               
-            <div class="rate" style="max-width:auto;">
-            <h5 style="color:#ec6090;">Rate</h5>
+            <h4 class="responsive-h4-detail" style="color:#ec6090;">Rate</h4>
+            <div class="rate">
             <input class = 'star-input' type="radio" id="star10" name="rate" value="10" />
             <label for="star10" title="text">10 stars</label>
             <input class = 'star-input' type="radio" id="star9" name="rate" value="9" />
@@ -235,13 +234,12 @@ const detailPage = {
             <label for="star1" title="text">1 star</label>
           </div>
           <br>
-          <br>
                 <div>
                     <div class="darker mt-4 text-justify">
                             <textarea id='review-input' class="form-control" rows="6" placeholder="Komentar..." style="background-color:#27292a;color:white;"></textarea>
                             <br>
                             <div class="mar-top clearfix" style="float:right; padding-bottom:20px;">
-                              <button type="submit" class="btn btn-primary btn-lg" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;" id='submitBtn'><i class="fa fa-pencil fa-fw"></i>Upload Review</button>
+                              <button type="submit" class="btn btn-primary btn-lg btn-size" style="background-color:#ec6090; border-color:#e75e8d96; font-family:'Poppins', sans-serif;" id='submitBtn'><i class="fa fa-pencil fa-fw"></i>Upload Review</button>
                             </div>
                     </div>
                     </form>    
@@ -372,11 +370,11 @@ const detailPage = {
         <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
-            <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${reviewData.rating}</p>
-            <h5>${reviewData.member_nama} <i id='deleteOwnedReview' class="fas fa-trash-alt" style="color:pink; font-size:25px; float:right;"></i></h5>
+            <p class="responsive-p" style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${reviewData.rating}</p>
+            <h5 class="responsive-h5-detail">${reviewData.member_nama} <i id='deleteOwnedReview' class="fas fa-trash-alt" style="color:pink; font-size:15px; float:right;"></i></h5>
             <span style="color:grey; text-align:right;"> ${reviewData.date}</span>
             <br>
-            <p style="color: white;padding-left:15px;">${reviewData.content}</p>
+            <p class="responsive-p" style="color: white;padding-left:15px;">${reviewData.content}</p>
           </div>
         </div>
         <br>
@@ -444,11 +442,11 @@ const detailPage = {
           <div class="comment mt-4 text-justify float-left">
           <hr style="color:white;">
           <div>
-            <p style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
-            <h5 ><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a></h5>
+            <p class="responsive-p" style="color:#ec6090;"><i class="fa fa-star" style="color:pink; font-size:14px;"></i> ${data.data().rating}</p>
+            <h5 class="responsive-h5-detail"><a href='#/profile/${data.data().member_id}' target="_blank">${data.data().member_nama}</a></h5>
             <span style="color:grey; text-align:right;"> ${data.data().date}</span>
             <br>
-            <p style="color: white;padding-left:15px;">${data.data().content}</p>
+            <p class="responsive-p" style="color: white;padding-left:15px;">${data.data().content}</p>
           </div>
         </div>
         <br>
