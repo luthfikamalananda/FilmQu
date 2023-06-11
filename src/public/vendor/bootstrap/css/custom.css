@@ -73,7 +73,7 @@
 
 @media screen  and (min-width: 576px) {
     .titleName {
-        /* max-width: 80px; */
+        max-width: 80px;
     }
 }
 
