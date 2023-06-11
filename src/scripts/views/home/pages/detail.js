@@ -387,47 +387,56 @@ const detailPage = {
       reviewForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         reviewValue = reviewInput.value;
-        // console.log(reviewValue);
-        // console.log(starValue);
-        const data = {
-          date: new Date().toISOString().split('T')[0],
-          content: reviewValue,
-          rating: starValue,
-          movie_id: idMovie.id,
-          member_id: memberData.id,
-          member_nama: memberDataFB.nama,
-          member_email: memberDataFB.email
-        }
-        // console.log(data);
-        try {
-          await setDoc(doc(db, 'film', idMovie.id), detailMovie)
-          await setDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`), data);
-          reviewed_movies.push(idMovie.id)
-          if (exist == -1) {
-            await updateDoc(doc(db, "member", memberData.id), {
-              film_review: reviewed_movies
-            })
+        if (starValue != '-1' && reviewValue != '') {
+           // console.log(reviewValue);
+          // console.log(starValue);
+          const data = {
+            date: new Date().toISOString().split('T')[0],
+            content: reviewValue,
+            rating: starValue,
+            movie_id: idMovie.id,
+            member_id: memberData.id,
+            member_nama: memberDataFB.nama,
+            member_email: memberDataFB.email
           }
-          Swal.fire({
-            icon: 'success',
-            title: 'Review Berhasil',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Tutup',
-            allowOutsideClick: false
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              location.reload();
-            } 
-          })
-        } catch (error) {
+          // console.log(data);
+          try {
+            await setDoc(doc(db, 'film', idMovie.id), detailMovie)
+            await setDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`), data);
+            reviewed_movies.push(idMovie.id)
+            if (exist == -1) {
+              await updateDoc(doc(db, "member", memberData.id), {
+                film_review: reviewed_movies
+              })
+            }
+            Swal.fire({
+              icon: 'success',
+              title: 'Review Berhasil',
+              showDenyButton: false,
+              showCancelButton: false,
+              confirmButtonText: 'Tutup',
+              allowOutsideClick: false
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                location.reload();
+              } 
+            })
+          } catch (error) {
+            Swal.fire(
+              error,
+              'Review Gagal',
+              'error'
+            )
+          }
+        } else {
           Swal.fire(
-            error,
             'Review Gagal',
+            'Harap isi Form Review dengan Lengkap',
             'error'
           )
         }
+       
       })
 
     }
