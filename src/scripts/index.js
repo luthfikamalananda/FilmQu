@@ -46,7 +46,6 @@ searchText.addEventListener('keydown', (e) => {
     console.log(searchText.value);
     window.location.href = `#/search/${searchText.value}`
   }
-  
 })
 
 // Navbar Hamburger
