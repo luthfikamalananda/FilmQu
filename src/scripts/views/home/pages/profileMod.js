@@ -53,7 +53,7 @@ const profileMod = {
     },
 
     async afterRender() {
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
         const localAccount = JSON.parse(localStorage.getItem('moderator'))
 
         const app = initializeApp(firebaseConfig);

@@ -64,7 +64,7 @@ const editPassword = {
     },
 
     async afterRender() {
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
     
@@ -81,9 +81,9 @@ const editPassword = {
         const EditPassForm = document.getElementById('editpassform');
         EditPassForm.addEventListener('submit', async (e) => {
             e.preventDefault()
-            console.log(newPassword.value);
-            console.log(reNewPassword.value);
-            console.log(oldPassword.value);
+            // console.log(newPassword.value);
+            // console.log(reNewPassword.value);
+            // console.log(oldPassword.value);
             if (newPassword.value == reNewPassword.value) {
                 if (oldPassword.value == data.password) {
                     try {

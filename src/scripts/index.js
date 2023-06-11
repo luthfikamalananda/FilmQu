@@ -41,11 +41,11 @@ window.addEventListener('hashchange', () => {
 // Search Function
 const searchText = document.getElementById('searchText');
 searchText.addEventListener('keydown', (e) => {
-  console.log(e);
+  // console.log(e);
   if (e.keyCode == 13)  {
     searchText.value;
     e.preventDefault()
-    console.log(searchText.value);
+    // console.log(searchText.value);
     window.location.href = `#/search/${searchText.value}`
   }
 })
@@ -55,7 +55,7 @@ const hamburgerButton = document.getElementById('hamburger');
 const navbarContents = document.getElementById('navbar');
 hamburgerButton.addEventListener('click', (e) => {
   const hamburgerAtrributes = hamburgerButton.getAttribute('class')
-  console.log(hamburgerAtrributes);
+  // console.log(hamburgerAtrributes);
   hamburgerButton.setAttribute('class', 'menu-trigger active')
   navbarContents.setAttribute('style', 'display: block;')
   if (hamburgerAtrributes == 'menu-trigger active') {

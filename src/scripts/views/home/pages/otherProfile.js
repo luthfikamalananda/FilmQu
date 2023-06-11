@@ -72,7 +72,7 @@ const otherProfile = {
     },
 
     async afterRender() {
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
 
         const app = initializeApp(firebaseConfig);
 
@@ -116,7 +116,7 @@ const otherProfile = {
                 </div>`
                 }
             })
-            console.log(filmDB.id, '==>', filmDB.data());
+            // console.log(filmDB.id, '==>', filmDB.data());
         });
 
          // Reviewed Movie Container
@@ -139,7 +139,7 @@ const otherProfile = {
                 </div>`
                  }
              })
-             console.log(filmDB.id, '==>', filmDB.data());
+            //  console.log(filmDB.id, '==>', filmDB.data());
          });
         
     }

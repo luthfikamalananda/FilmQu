@@ -102,7 +102,7 @@ const detailPage = {
   },
 
   async afterRender() {
-    console.log("afterrender jalan");
+    // console.log("afterrender jalan");
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -351,7 +351,7 @@ const detailPage = {
       // Edit Review
       exist = reviewed_movies.findIndex(element => element == idMovie.id)
       let reviewData;
-      console.log(exist);
+      // console.log(exist);
       if (exist > -1) {
         const docRefReview = collection(db, "review");
         const q = query(docRefReview, where("movie_id", "==", idMovie.id), where("member_id", "==", memberData.id));
@@ -387,8 +387,8 @@ const detailPage = {
       reviewForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         reviewValue = reviewInput.value;
-        console.log(reviewValue);
-        console.log(starValue);
+        // console.log(reviewValue);
+        // console.log(starValue);
         const data = {
           date: new Date().toISOString().split('T')[0],
           content: reviewValue,
@@ -398,7 +398,7 @@ const detailPage = {
           member_nama: memberDataFB.nama,
           member_email: memberDataFB.email
         }
-        console.log(data);
+        // console.log(data);
         try {
           await setDoc(doc(db, 'film', idMovie.id), detailMovie)
           await setDoc(doc(db, "review", `${memberData.id}_${idMovie.id}`), data);
@@ -458,7 +458,7 @@ const detailPage = {
         if (deleteBtn) { // delete button only created when already reviewd, so that if the user hasn't review system cannot run the eventListener
           deleteBtn.addEventListener('click',  async (e) => {
             e.preventDefault()
-            console.log('tes');
+            // console.log('tes');
             Swal.fire({
               title: 'Apakah Anda Yakin Ingin Menghapus Review',
               showCancelButton: true,
@@ -526,7 +526,7 @@ const detailPage = {
           }).then( async (result) => {
             if (result.isConfirmed) {
               const reviewer_id = btn.getAttribute('data-id');
-              console.log(reviewer_id);
+              // console.log(reviewer_id);
               await deleteDoc(doc(db, "review", `${reviewer_id}_${idMovie.id}`)) // hapus review pada db review
 
               const docSnap = await getDoc(doc(db, "member", reviewer_id)) // mengambil film_review

@@ -48,21 +48,21 @@ const searchPage = {
     async afterRender() {
         const searchText = document.getElementById('searchTextInSearch');
         searchText.addEventListener('keydown', (e) => {
-        console.log(e);
+        // console.log(e);
         if (e.keyCode == 13)  {
             searchText.value;
             e.preventDefault()
-            console.log(searchText.value);
+            // console.log(searchText.value);
             window.location.href = `#/search/${searchText.value}`
         }
         })
 
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
         const query = UrlParser.parseActiveUrlWithoutCombiner();
-        console.log(query.id);
+        // console.log(query.id);
         const searchedMovies = await TheMovieDbSource.searchMovie(query.id);
         const searchMoviesContainer = document.getElementById('searched-film');
-        console.log(searchedMovies);
+        // console.log(searchedMovies);
         
         searchedMovies.forEach(movie => {
             searchMoviesContainer.innerHTML += `

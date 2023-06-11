@@ -31,7 +31,7 @@ const registerFunctions = {
         let existed = 0;
         const querySnapshot = await getDocs(collection(db, "member"))
         querySnapshot.forEach((doc) => {
-            console.log(doc.id, '==>', doc.data().email);
+            // console.log(doc.id, '==>', doc.data().email);
             if (doc.data().email == data.email) {
                 existed = 1;
                 Swal.fire({

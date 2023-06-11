@@ -32,7 +32,7 @@ const reviewed = {
     },
 
     async afterRender() {
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
 
         const favoriteContainer = document.getElementById('favorit-film');
 

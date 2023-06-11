@@ -63,7 +63,7 @@ const editProfile = {
     },
 
     async afterRender() {
-        console.log('afterrender jalan');
+        // console.log('afterrender jalan');
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
     

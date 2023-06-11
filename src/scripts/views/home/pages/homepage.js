@@ -126,7 +126,7 @@ const homePage = {
 
         const ratingTinggiContainer = document.getElementById('ratingTinggi');
         const moviesRating = await TheMovieDbSource.popularMovies();
-        console.log(moviesRating);
+        // console.log(moviesRating);
         moviesRating.forEach(movie => {
             ratingTinggiContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6 col-6">
