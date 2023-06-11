@@ -71,7 +71,7 @@ const mainRegister = {
     },
 
     async afterRender(){
-        console.log('afterrender jalan..');
+        // console.log('afterrender jalan..');
         
 
         const registerForm=document.getElementById('registerForm');
