@@ -117,13 +117,6 @@ const homePage = {
             </div>`
         });
 
-        sedangTayangContainer.innerHTML += `
-        <div class="col-lg-12">
-            <div class="main-button">
-                <a href="/">Discover Popular</a>
-            </div>
-        </div>`
-
         const ratingTinggiContainer = document.getElementById('ratingTinggi');
         const moviesRating = await TheMovieDbSource.popularMovies();
         // console.log(moviesRating);
@@ -140,13 +133,6 @@ const homePage = {
                 </div>
             </div>`
         });
-
-        ratingTinggiContainer.innerHTML += `
-        <div class="col-lg-12">
-            <div class="main-button">
-                <a href="/">Discover Popular</a>
-            </div>
-        </div>`
 
         const carousel1 = document.getElementById('carousel01');
         const carousel2 = document.getElementById('carousel02');

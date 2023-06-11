@@ -85,14 +85,6 @@ const searchPage = {
             </div>`
         });
 
-        searchMoviesContainer.innerHTML += `
-        <div class="col-lg-12">
-            <div class="main-button">
-                <a href="browse.html">Discover Popular</a>
-            </div>
-        </div>`
-
-
         // Rating Filmqu
         const ratingFilmquContainer = document.querySelectorAll('#ratingFilmqu');
         ratingFilmquContainer.forEach((container) => {
