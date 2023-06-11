@@ -34,7 +34,7 @@ const mainLogin = {
                         </div>
 
                         <div class="form-check d-flex justify-content-center mb-4" style="color:grey; font-family: 'Poppins', sans-serif;">
-                        <label class="form-check-label" for="form2Example3">
+                        <label class="form-check-label responsive-label " for="form2Example3">
                         Belum memiliki akun? silahkan <a href="register/" style="color:#ec6090; font-family: 'Poppins', sans-serif;">Daftar Disini</a>
                         </label>
                         </div>

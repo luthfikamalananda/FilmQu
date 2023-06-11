@@ -6,13 +6,13 @@ import { initializeApp } from "firebase/app";
 
 const reviewed = {
     async render() {
-        return `<div class="container-fluid">
+        return `<div class="container-fluid responsive-container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-content" style="padding:20px;">
+                <div class="page-content responsive-page-content" style="padding:20px;">
 
                     <!-- ***** Most Popular Start ***** -->
-                    <div class="most-popular" style="margin-top:0;">
+                    <div class="most-popular responsive-most-popular">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="heading-section">
@@ -49,11 +49,11 @@ const reviewed = {
             memberReviewed.forEach((idMovie) => {
                 if (filmDB.id == idMovie) {
                     favoriteContainer.innerHTML += `
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item" style="max-width:auto;">
+                    <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="item" style="max-width:auto; padding:13px;">
                             <a href='#/detail/${filmDB.id}'><img src="${filmDB.data().backdrop_path ? tmdbConfig.BASE_IMAGE_URL + filmDB.data().backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}" alt=""></a>
-                            <a href='#/detail/${filmDB.id}'><h4 class='titleName' style="max-width:auto;">${filmDB.data().title}<br><span>${filmDB.data().release_date}</span></h4></a>
-                            <ul>
+                            <a href='#/detail/${filmDB.id}'><h4 class='responsive-h4-rev-like' style="max-width:auto;">${filmDB.data().title}<br><span>${filmDB.data().release_date}</span></h4></a>
+                            <ul class="star-rating">
                                 <li><i class="fa fa-star"></i> ${filmDB.data().vote_average}</li>
                                 <li><i class="fa fa-star"></i></li>
                             </ul>

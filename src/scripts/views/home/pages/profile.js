@@ -21,8 +21,8 @@ const profile = {
                       <div class="col-lg-4 align-self-center">
                         <div class="main-info header-text">
                           <span id='statusMember'>Active</span>
-                          <h3 id='namaMember'>Alan Smithee</h3>
-                          <p id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
+                          <h4 class="responsive-h4-detail" id='namaMember'>Alan Smithee</h4>
+                          <p class="responsive-p" id='bioMember' class="responsive-p" style="margin-top: 10px;">Hi I'm new here, welcome to my profile</p>
                           <li>
                               <div class="main-border-button">
                                 <a id='editBtn' href="#/editprofile">Edit Profil</a>

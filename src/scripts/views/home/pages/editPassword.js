@@ -11,13 +11,13 @@ const editPassword = {
         return ` 
         <div class="container-fluid">
         <div class="row" >
-            <div class="page-content" style="background-color:#27292a;" align="center">
+            <div class="page-content" style="background-color:#27292a; padding:20px;" align="center">
             
             <div class="row">
               </div>
               <div align="center" style="color:#ec6090; max-width:auto; background-color:#1f2122; border-radius:20px" align="center" >
               <div class="heading-section" align="center" style="padding : 20px;">
-              <h4>Edit Profil</h4>
+              <h4>Ganti Password</h4>
               </div>
                 <form class="mx-1 mx-md-4" id="editpassform">
                   <div class="d-flex flex-row align-items-center mb-4">

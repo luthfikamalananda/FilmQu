@@ -11,7 +11,7 @@ const editProfile = {
         return ` 
         <div class="container-fluid">
         <div class="row" >
-            <div class="page-content" style="background-color:#27292a;" align="center">
+            <div class="page-content" style="background-color:#27292a; padding:20px;" align="center">
             
             <div class="row">
               </div>

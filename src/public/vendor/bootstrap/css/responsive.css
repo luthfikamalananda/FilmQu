@@ -1,4 +1,5 @@
-@media screen  and (min-width: 425px) {
+
+@media screen  and (max-width: 425px) {
     .responsive-p {
         font-size: 14px !important;
     }
@@ -9,11 +10,19 @@
         font-size: 15px !important;
     }
 
-    .responsive-h4-homepage{
+    .responsive-h4{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 200px;
+        max-width: 100px !important;
+        font-size: 10px !important;
+    }
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px !important;
         font-size: 10px !important;
     }
 
@@ -41,12 +50,18 @@
     .responsive-p-judul{
         font-size: 20px !important;
     }
-
     .responsive-h4{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 200px;
+    }
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
     }
 
 }
@@ -72,7 +87,14 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 100px;
+        max-width: 150px;
+    }
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
     }
 }
 
@@ -84,10 +106,27 @@
         text-overflow: ellipsis;
         max-width: 100px;
     }
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90px;
+    }
 }
 
-@media screen  and (min-width: 1440) {
+@media screen  and (min-width: 1440px) {
     .responsive-h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         max-width: 200px;
+    }  
+
+    .responsive-h4-rev-like{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 190px;
     }
 }
