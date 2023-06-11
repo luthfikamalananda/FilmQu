@@ -44,6 +44,8 @@ const favourite = {
         const docSnap = await getDoc(docRef);
         const memberFavorite = docSnap.data().film_favorit
 
+        const querySnapshotRating = await getDocs(collection(db, "rating"));
+
         const querySnapshot = await getDocs(collection(db, "film"));
         querySnapshot.forEach((filmDB) => {
             memberFavorite.forEach((idMovie) => {
@@ -55,13 +57,24 @@ const favourite = {
                             <a href='#/detail/${filmDB.id}'><h4 class='responsive-h4-rev-like' style="max-width:auto;">${filmDB.data().title}<br><span>${filmDB.data().release_date}</span></h4></a>
                             <ul class="star-rating">
                                 <li><i class="fa fa-star"></i> ${filmDB.data().vote_average}</li>
-                                <li><i class="fa fa-star"></i></li>
+                                <li id='ratingFilmqu' data-id='${filmDB.data().id}'><i class="fa fa-star"></i> -</li>
                             </ul>
                         </div>
                     </div>`
                 }
             })
         });
+
+        // Rating Filmqu
+        const ratingFilmquContainer = document.querySelectorAll('#ratingFilmqu');
+        ratingFilmquContainer.forEach((container) => {
+            const movieId = container.getAttribute('data-id')
+            querySnapshotRating.forEach((ratingData) => {
+                if (ratingData.data().movie_id == movieId && ratingData.data().rating != 'NaN') {
+                    container.innerHTML = `<i class="fa fa-star"></i> ${ratingData.data().rating}`
+                }
+            })
+        })
     }
 }
 
