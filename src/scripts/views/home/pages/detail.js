@@ -6,6 +6,7 @@ import firebaseConfig from "../../../globals/firebaseConfig";
 import { getDoc, doc, getFirestore, setDoc, deleteDoc, getDocs, collection, updateDoc, query, where, orderBy } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { customAlphabet  } from "nanoid";
+import calculateRating from "../../../utils/ratingCalculateFunctions";
 
 const detailPage = {
   async render() {
@@ -184,7 +185,7 @@ const detailPage = {
                         <li class='responsive-li'><i class="fa fa-star"></i> ${
                           detailMovie.vote_average
                         }</li>
-                        <li class='responsive-li'><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
+                        <li class='responsive-li' id='ratingFilmqu'><i class="fa fa-star" style="color:white;"></i>[filmqu]</li>
                       </ul>
                     </div>
                   </div>
@@ -547,6 +548,11 @@ const detailPage = {
         })
       })
     }
+
+    // 
+    const ratingFilmqu = await calculateRating.calculateRating(idMovie.id, reviewData);
+    const filmquRatingContainer = document.getElementById('ratingFilmqu');
+    filmquRatingContainer.innerHTML = `<i class="fa fa-star" style="color:white;"></i>${ratingFilmqu}`
   }
 };
 
