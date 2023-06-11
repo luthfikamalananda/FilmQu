@@ -40,6 +40,7 @@ const homeRoutes = {
   '/profilemod': profileMod,
   '/favourite': favourite,
   '/reviewed': reviewed,
+  '/search': searchPage,
   '/search/:id': searchPage,
   '/detail/:id':detailPage,
   '/editpassword': editPassword,

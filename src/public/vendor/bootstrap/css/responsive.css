@@ -178,6 +178,13 @@
     }
 }
 
+@media screen  and (max-width: 992px) {
+    #searchNav{
+        display: block !important;
+    }
+}
+
+
 
 @media screen  and (min-width: 1024px) {
     .btn-size{
@@ -201,6 +208,7 @@
         text-overflow: ellipsis;
         max-width: 90px;
     }
+
 }
 
 

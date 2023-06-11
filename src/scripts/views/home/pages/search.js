@@ -11,6 +11,22 @@ const searchPage = {
                 <div class="page-content responsive-page-content" style="padding:20px;">
 
                     <!-- ***** Most Popular Start ***** -->
+                    <div class="most-popular responsive-most-popular" style="margin-top:0px;background-color:transparent;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="heading-section">
+                                    <h4 style='text-align:center;'>Cari Film</h4>
+                                </div>
+                                <form id="search" action="#">
+                                        <input style='width:100%;height: 50px;border: 0;border-radius: 40px;padding: 10px 70px 10px 32px;' type="text" placeholder="Cari Film" id='searchTextInSearch' name="searchKeyword" />
+                                        <span class="fa fa-search" style="float: right;margin-right: 16px;margin-top: -32px;position: relative;z-index: 2;"></span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ***** Most Popular End ***** -->
+
+                    <!-- ***** Most Popular Start ***** -->
                     <div class="most-popular responsive-most-popular">
                         <div class="row">
                             <div class="col-lg-12">
@@ -30,6 +46,17 @@ const searchPage = {
     },
 
     async afterRender() {
+        const searchText = document.getElementById('searchTextInSearch');
+        searchText.addEventListener('keydown', (e) => {
+        console.log(e);
+        if (e.keyCode == 13)  {
+            searchText.value;
+            e.preventDefault()
+            console.log(searchText.value);
+            window.location.href = `#/search/${searchText.value}`
+        }
+        })
+
         console.log('afterrender jalan');
         const query = UrlParser.parseActiveUrlWithoutCombiner();
         console.log(query.id);
