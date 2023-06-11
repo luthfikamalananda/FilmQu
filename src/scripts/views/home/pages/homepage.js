@@ -1,6 +1,10 @@
 import { async } from "regenerator-runtime"
 import TheMovieDbSource from "../../../data/themoviedb-source";
 import tmdbConfig from "../../../globals/tmdbConfig";
+import { collection, getFirestore, getDocs  } from "firebase/firestore";
+import { initializeApp } from "firebase/app"; 
+import firebaseConfig from "../../../globals/firebaseConfig";
+
 
 const homePage = {
     async render() {
@@ -93,7 +97,12 @@ const homePage = {
         console.log('afterrender jalan');
         const sedangTayangContainer = document.getElementById('sedang-tayang');
         const movies = await TheMovieDbSource.nowPlayingMovies();
-        console.log(movies);
+        // console.log(movies);
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const querySnapshotRating = await getDocs(collection(db, "rating"));
+
         movies.forEach(movie => {
             sedangTayangContainer.innerHTML += `
             <div class="col-lg-3 col-sm-6 col-6">
@@ -102,7 +111,7 @@ const homePage = {
                     <a href='#/detail/${movie.id}'><h4 class='responsive-h4' style="max-width:auto;">${movie.title}<br><span>${movie.release_date}</span></h4></a>
                     <ul class='star-rating'>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-                        <li><i class="fa fa-star"></i></li>
+                        <li id='ratingFilmqu' data-id='${movie.id}'><i class="fa fa-star"></i> -</li>
                     </ul>
                 </div>
             </div>`
@@ -111,7 +120,7 @@ const homePage = {
         sedangTayangContainer.innerHTML += `
         <div class="col-lg-12">
             <div class="main-button">
-                <a href="browse.html">Discover Popular</a>
+                <a href="/">Discover Popular</a>
             </div>
         </div>`
 
@@ -126,7 +135,7 @@ const homePage = {
                     <a href='#/detail/${movie.id}'><h4 class='responsive-h4' style="max-width:auto;">${movie.title}<br><span>${movie.release_date}</span></h4></a>
                     <ul class='star-rating'>
                         <li><i class="fa fa-star"></i> ${movie.vote_average}</li>
-                        <li><i class="fa fa-star"></i></li>
+                        <li id='ratingFilmqu' data-id='${movie.id}'><i class="fa fa-star"></i> -</li>
                     </ul>
                 </div>
             </div>`
@@ -135,7 +144,7 @@ const homePage = {
         ratingTinggiContainer.innerHTML += `
         <div class="col-lg-12">
             <div class="main-button">
-                <a href="browse.html">Discover Popular</a>
+                <a href="/">Discover Popular</a>
             </div>
         </div>`
 
@@ -146,6 +155,17 @@ const homePage = {
         carousel1.setAttribute('src', `${movies[0].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[0].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
         carousel2.setAttribute('src', `${movies[1].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[1].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
         carousel3.setAttribute('src', `${movies[2].backdrop_path ? tmdbConfig.ORIGINAL_IMAGE_URL + movies[2].backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}`)
+
+        // Rating Filmqu
+        const ratingFilmquContainer = document.querySelectorAll('#ratingFilmqu');
+        ratingFilmquContainer.forEach((container) => {
+            const movieId = container.getAttribute('data-id')
+            querySnapshotRating.forEach((ratingData) => {
+                if (ratingData.data().movie_id == movieId && ratingData.data().rating != 'NaN') {
+                    container.innerHTML = `<i class="fa fa-star"></i> ${ratingData.data().rating}`
+                }
+            })
+        })
 
     }
 }

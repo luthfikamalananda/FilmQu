@@ -20,8 +20,9 @@ const calculateRating = {
         });
 
         ratingTemp = ratingTemp / counter
-        await this.addToDB(movieId, ratingTemp);
-
+        if (!isNaN(ratingTemp)) {
+            await this.addToDB(movieId, ratingTemp);
+        }
         return ratingTemp
     },
     async addToDB(movieId, rating){
