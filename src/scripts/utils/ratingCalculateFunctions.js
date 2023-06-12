@@ -16,14 +16,21 @@ const calculateRating = {
             if (review.data().movie_id == movieId) {
                 ratingTemp += parseInt(review.data().rating);
                 counter++
-            }
+                
+            }   
         });
 
         ratingTemp = ratingTemp / counter
         if (!isNaN(ratingTemp)) {
             await this.addToDB(movieId, ratingTemp);
+            return ratingTemp
+        } else if(counter == '0'){
+            await this.addToDB(movieId, '-');
+            return '-'
+        }else { 
+            return '-'
         }
-        return ratingTemp
+        
     },
     async addToDB(movieId, rating){
         const docRef = doc(db, 'rating', `rating_${movieId}`);
