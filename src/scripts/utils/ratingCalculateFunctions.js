@@ -20,7 +20,7 @@ const calculateRating = {
             }   
         });
 
-        ratingTemp = ratingTemp / counter
+        ratingTemp = (ratingTemp / counter).toFixed(2)
         if (!isNaN(ratingTemp)) {
             await this.addToDB(movieId, ratingTemp);
             return ratingTemp
